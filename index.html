@@ -3,7 +3,18 @@
 <title>MLE Studio - Simple apps that help you get things done</title>
 <meta name="description" content="MLE Studio builds Progrex, an app that picks the one task that fits the time you have. Works offline, no ads, no tracking.">
 <meta name="theme-color" content="#07080f">
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<link rel="canonical" href="https://mlestudio.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MLE Studio">
+<meta property="og:title" content="MLE Studio - Simple apps that help you get things done">
+<meta property="og:description" content="Progrex picks the one task that fits the time you have, makes it small, and starts the clock. Works offline, no ads, no tracking.">
+<meta property="og:url" content="https://mlestudio.app/">
+<meta property="og:image" content="https://mlestudio.app/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="img/now_hero.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","name":"MLE Studio","url":"https://mlestudio.app/","logo":"https://mlestudio.app/img/icon.png","email":"MLE.studio@hotmail.com"},{"@type":"MobileApplication","name":"Progrex: Beat Procrastination","operatingSystem":"Android","applicationCategory":"ProductivityApplication","url":"https://play.google.com/store/apps/details?id=com.progrex.app","publisher":{"@type":"Organization","name":"MLE Studio"}}]}</script>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -112,12 +123,21 @@ footer{padding:0 0 30px}
 [dir=rtl] .feat li::before{content:"\2190  "}
 [dir=rtl] .eyebrow{letter-spacing:0}
 [dir=rtl] .ring{margin:4px 0 0 auto}
+html{overflow-x:hidden}
+.ph{display:block}
+.ph.hero{width:300px;aspect-ratio:540/748}
+.ph img{width:100%;height:100%}
+a:focus-visible,button:focus-visible{outline:3px solid #7ee7ff;outline-offset:3px}
+.skip{position:absolute;top:8px;inset-inline-start:12px;z-index:99;background:#fff;color:#000;padding:10px 16px;border-radius:10px;transform:translateY(-220%)}
+.skip:focus{transform:none}
+@media(hover:none){#spot{display:none}}
 </style></head><body>
+<a class="skip" href="#top" data-k="skip">Skip to content</a>
 <div class="aur"><i></i><i></i><i></i><i></i></div><div class="grain"></div><div id="spot"></div>
 
 <header>
   <a class="brand" href="#top">MLE Studio</a>
-  <nav><a href="#demo" data-k="nav_try">Try it</a><a href="#features" data-k="nav_feat">Features</a><a href="#get" data-k="nav_get">Get the app</a><a class="lang" href="#" id="lang">عربي</a></nav>
+  <nav><a href="#demo" data-k="nav_try">Try it</a><a href="#features" data-k="nav_feat">Features</a><a href="#get" data-k="nav_get">Get the app</a><a class="lang" href="#" id="lang" role="button" aria-label="Switch language / تغيير اللغة">عربي</a></nav>
 </header>
 
 <main id="top"><div class="wrap">
@@ -126,11 +146,11 @@ footer{padding:0 0 30px}
       <span class="tag"><b></b><span data-k="tag">Progrex is on Google Play</span></span>
       <h1 data-k="h1">Stop planning.<br><em>Start the one that fits.</em></h1>
       <p class="lead" data-k="lead">You know what you should be doing. Progrex closes the gap between knowing and starting: tell it how much time you have, and it picks the task that really fits.</p>
-      <div class="cta"><a class="btn p" href="#get" data-k="cta1">Get Progrex on Google Play</a><a class="btn g" href="#demo" data-k="cta2">Try the idea &darr;</a></div>
+      <div class="cta"><a class="btn p" href="https://play.google.com/store/apps/details?id=com.progrex.app" data-k="cta1">Get Progrex on Google Play</a><a class="btn g" href="#demo" data-k="cta2">Try the idea &darr;</a></div>
       <div class="mini"><span data-k="m1">Works offline</span><span data-k="m2">No ads, no tracking</span><span data-k="m3">Six languages</span></div>
     </div>
     <div class="stage" id="stage">
-      <div class="ph" id="phone"><img src="img/now.jpg" alt="Progrex main screen"></div>
+      <div class="ph hero" id="phone"><img src="img/now_hero.jpg" width="540" height="748" alt="Progrex main screen showing tasks ranked by what fits your time"></div>
       <div class="chip c1"><b data-k="c1a">Fits your 30 min</b><small data-k="c1b">Email the professor about the extension</small></div>
       <div class="chip c2"><b data-k="c2a">Stuck on this?</b><small data-k="c2b">Every reason has a next step</small></div>
       <div class="chip c3"><b data-k="c3a">8-day streak</b><small data-k="c3b">moves only with real work</small></div>
@@ -165,7 +185,7 @@ footer{padding:0 0 30px}
     <div class="txt"><span class="eyebrow" data-k="a_eye">When you freeze</span><h2 data-k="a_h">"Stuck on this?" has an answer.</h2>
       <p class="sub" data-k="a_p">Tap it and Progrex asks why. Every reason leads to something the app actually does about it.</p>
       <ul><li data-k="a_1">Too big? It helps you name one concrete first step.</li><li data-k="a_2">Too tired? It moves the task to the hour your energy works.</li><li data-k="a_3">Not sure it matters? It shows your own answer back next time.</li></ul></div>
-    <div class="vis"><div class="ph sm tilt"><img src="img/stuck.jpg" alt="Stuck reasons"></div></div>
+    <div class="vis"><div class="ph sm tilt"><img src="img/stuck.jpg" width="540" height="960" loading="lazy" alt="Stuck reasons"></div></div>
   </div>
 
 
@@ -173,21 +193,21 @@ footer{padding:0 0 30px}
     <div class="txt"><span class="eyebrow" data-k="t_eye">A two-minute on-ramp</span><h2 data-k="t_h">The hardest part is the first two minutes.</h2>
       <p class="sub" data-k="t_p">Commit to just that. Progrex asks for your first physical move, then keeps the clock while you put the phone down. Stop with no guilt if you want. Most of the time you won’t want to.</p>
       <ul><li data-k="t_1">Name one concrete first move.</li><li data-k="t_2">A short line to help you commit.</li></ul></div>
-    <div class="vis"><div class="ph sm tilt"><img src="img/first.jpg" alt="First physical move"></div></div>
+    <div class="vis"><div class="ph sm tilt"><img src="img/first.jpg" width="540" height="960" loading="lazy" alt="First physical move"></div></div>
   </div>
 
   <div class="feat rv">
     <div class="txt"><span class="eyebrow" data-k="b_eye">Right on your home screen</span><h2 data-k="b_h">Your month, at a glance.</h2>
       <p class="sub" data-k="b_p">The Month widget shows every task on the day it is due. Tap a day to finish or add tasks without opening the app.</p>
       <ul><li data-k="b_1">A second widget lists today.</li><li data-k="b_2">Five looks to choose from.</li><li data-k="b_3">A small card can even ask you for a free moment.</li></ul></div>
-    <div class="vis"><div class="ph sm tilt"><img src="img/month.jpg" alt="Month widget"></div></div>
+    <div class="vis"><div class="ph sm tilt"><img src="img/month.jpg" width="540" height="960" loading="lazy" alt="Month widget"></div></div>
   </div>
 
   <div class="feat rev rv">
     <div class="txt"><span class="eyebrow" data-k="c_eye">Something to come back to</span><h2 data-k="c_h">A little world that grows when you do.</h2>
       <p class="sub" data-k="c_p">Rex, a small flame, cheers your first win. Sprout grows from a seed as you finish tasks, and in the tank your finished tasks become fish.</p>
       <ul><li data-k="c_1">Rex can give an optional daily nudge to start, off by default.</li><li data-k="c_2">Streaks and badges that only move with real work.</li></ul></div>
-    <div class="vis"><div class="ph sm tilt"><img src="img/garden.jpg" alt="Garden"></div></div>
+    <div class="vis"><div class="ph sm tilt"><img src="img/garden.jpg" width="540" height="960" loading="lazy" alt="Garden"></div></div>
   </div>
 
 
@@ -195,7 +215,7 @@ footer{padding:0 0 30px}
     <div class="txt"><span class="eyebrow" data-k="x_eye">And there's more</span><h2 data-k="x_h">Everything else you'd want.</h2>
       <p class="sub" data-k="x_p">Small things that make it easier to come back tomorrow.</p>
       <ul><li data-k="x_1">Task wheel: can't choose? Spin it.</li><li data-k="x_2">Treat wheel: win a treat for your effort.</li><li data-k="x_3">Badges, from bronze all the way to diamond.</li><li data-k="x_4">Routines: small steps, every day.</li></ul></div>
-    <div class="vis"><div class="ph sm tilt"><img src="img/more.jpg" alt="Everything else in Progrex"></div></div>
+    <div class="vis"><div class="ph sm tilt"><img src="img/more.jpg" width="540" height="960" loading="lazy" alt="Everything else in Progrex"></div></div>
   </div>
 
   <div class="bento rv">
@@ -216,14 +236,15 @@ footer{padding:0 0 30px}
 </section>
 </div></main>
 
-<footer><div class="wrap"><div class="foot"><div>&copy; 2026 MLE Studio &mdash; ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions</div><div><span data-k="reg">Commercial Register</span> 7055617893</div></div></div></footer>
+<footer><div class="wrap"><div class="foot"><div>&copy; 2026 MLE Studio &mdash; ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions</div><div><a href="https://drmadx23.github.io/progrex-privacy/" data-k="g_priv2">Privacy Policy</a> &middot; <a href="mailto:MLE.studio@hotmail.com">MLE.studio@hotmail.com</a> &middot; <span data-k="reg">Commercial Register</span> 7055617893</div></div></div></footer>
 
 <script>
 var AR={"t_eye": "بداية بدقيقتين", "t_h": "أصعب جزء هو أول دقيقتين.", "t_p": "التزم بذلك فقط. يسألك Progrex عن أول حركة فعلية، ثم يحتسب الوقت بينما تضع الهاتف جانبًا. توقّف دون شعور بالذنب إن شئت. في الغالب لن تريد التوقف.", "t_1": "سمِّ أول حركة ملموسة.", "t_2": "عبارة قصيرة تساعدك على الالتزام.",
 "x_eye": "وهناك المزيد", "x_h": "كل ما قد تحتاجه أيضًا.", "x_p": "أشياء صغيرة تجعل العودة غدًا أسهل.", "x_1": "عجلة المهام: لا تستطيع الاختيار؟ أدِرها.", "x_2": "عجلة المكافآت: اربح مكافأة على جهدك.", "x_3": "شارات، من البرونزية حتى الماسية.", "x_4": "الروتين: خطوات صغيرة كل يوم.",
+"skip": "انتقل إلى المحتوى", "g_priv2": "سياسة الخصوصية", "desc": "Progrex يختار المهمة التي تناسب وقتك، ويصغّرها، ويشغّل المؤقت. يعمل دون اتصال، بلا إعلانات ولا تتبّع.",
 "title": "MLE Studio - تطبيقات بسيطة تساعدك على إنجاز مهامك", "nav_try": "جرّبه", "nav_feat": "المزايا", "nav_get": "حمّل التطبيق", "tag": "Progrex متوفر على Google Play", "h1": "توقّف عن التخطيط.<br><em>ابدأ بالمهمة التي تناسب وقتك.</em>", "lead": "أنت تعرف ما يجب عليك فعله. Progrex يسدّ الفجوة بين المعرفة والبدء: أخبره كم من الوقت لديك، فيختار المهمة التي تناسبه فعلًا.", "cta1": "حمّل Progrex من Google Play", "cta2": "جرّب الفكرة &darr;", "m1": "يعمل دون اتصال", "m2": "بلا إعلانات ولا تتبّع", "m3": "ست لغات", "c1a": "يناسب 30 دقيقة", "c1b": "أرسل بريدًا إلى الأستاذ بخصوص التمديد", "c2a": "عالق في هذه المهمة؟", "c2b": "لكل سبب خطوة تالية", "c3a": "سلسلة 8 أيام", "c3b": "لا تتقدم إلا مع العمل الحقيقي", "d_eye": "جرّبه الآن", "d_h": "كم من الوقت لديك فعلًا؟", "d_sub": "هذه هي الفكرة كلها. اختر نافذة زمنية وشاهد قائمة مهامك تعيد ترتيب نفسها حولها.", "d_have": "لدي&hellip;", "f_eye": "ما بداخله", "f_h": "صُمّم للأيام التي لا تستطيع فيها البدء.", "f_sub": "كل تطبيق مهام يفترض أنك ستبدأ. Progrex يفترض أنك قد لا تبدأ.", "a_eye": "عندما تتجمّد", "a_h": "«عالق في هذه المهمة؟» له جواب.", "a_p": "اضغط عليه فيسألك Progrex عن السبب، وكل سبب يقود إلى شيء يفعله التطبيق فعلًا.", "a_1": "المهمة كبيرة؟ يساعدك على تسمية خطوة أولى واضحة.", "a_2": "متعب؟ ينقل المهمة إلى الساعة التي تعمل فيها طاقتك.", "a_3": "لست متأكدًا أنها تهم؟ يعرض لك إجابتك في المرة القادمة.", "b_eye": "على شاشتك الرئيسية", "b_h": "شهرك في لمحة.", "b_p": "تعرض أداة الشهر كل مهمة في يوم استحقاقها. اضغط على يوم لإنهاء المهام أو إضافتها دون فتح التطبيق.", "b_1": "أداة ثانية تعرض مهام اليوم.", "b_2": "خمسة أشكال للاختيار.", "b_3": "وقد تسألك بطاقة صغيرة عن لحظة فراغ.", "c_eye": "شيء تعود إليه", "c_h": "عالم صغير ينمو معك.", "c_p": "ريكس، لهب صغير، يحتفي بأول إنجاز لك. وSprout ينمو من بذرة كلما أنهيت مهمة، وفي الحوض تتحوّل مهامك المنجزة إلى أسماك.", "c_1": "يمكن لريكس أن يذكّرك يوميًا بالبدء، وهو متوقف افتراضيًا.", "c_2": "سلاسل وشارات لا تتحرك إلا مع العمل الحقيقي.", "e1a": "الأقران", "e1b": "سلّم مهمة إلى صديق. هو وحده من يستطيع إنهاءها.", "e2a": "حجب المشتتات", "e2b": "تضيع ساعات على تطبيقات التواصل؟ يستطيع Progrex حجبها وإعادتك إلى مهامك.", "e3a": "بياناتك لك", "e3b": "يعمل دون اتصال ويحتفظ بمهامك على جهازك. لا حاجة إلى حساب. بلا إعلانات ولا تتبّع ولا ملف شخصي عنك.", "g_h": "اختر مهمة. صغّرها. شغّل المؤقت.", "g_sub": "Progrex: Beat Procrastination من MLE Studio.", "g_btn": "حمّل من Google Play", "g_q": "أسئلة؟", "g_priv": "سياسة الخصوصية", "reg": "السجل التجاري"},UI={"en": {"min": "min", "now": "DO THIS NOW", "start": "Start", "nofit": "doesn’t fit", "note": "Two minutes. Stop whenever you want. Most of the time you won’t want to.", "btn": "عربي"}, "ar": {"min": "د", "now": "افعل هذا الآن", "start": "ابدأ", "nofit": "لا تناسب", "note": "دقيقتان فقط. توقّف متى شئت. في الغالب لن تريد التوقف.", "btn": "EN"}},TK=[["Book the dentist", "احجز موعد طبيب الأسنان", "Today 6:00 PM", "اليوم 6:00 م"], ["Pay the electricity bill", "ادفع فاتورة الكهرباء", "Today 6:00 PM", "اليوم 6:00 م"], ["Call the bank about the fee", "اتصل بالبنك بخصوص الرسوم", "Tomorrow", "غدًا"], ["Reply to the landlord", "ردّ على المؤجّر", "Friday", "الجمعة"], ["Draft the project proposal", "اكتب مقترح المشروع", "Next week", "الأسبوع القادم"], ["Reorganise the garage", "رتّب المرآب", "Someday", "يومًا ما"]],RIB={en:["Fits your free time", "Stuck on this?", "Two-minute start", "Month widget", "Quick add by voice", "Focus timer", "Routines & sub-tasks", "Peer accountability", "Light & dark", "Blocks distracting apps", "Free-time pop-up", "Six languages", "Works offline"],ar:["يناسب وقتك الفارغ", "عالق في هذه المهمة؟", "بداية بدقيقتين", "أداة الشهر", "إضافة سريعة بالصوت", "مؤقت التركيز", "روتين ومهام فرعية", "المساءلة مع الأقران", "فاتح وداكن", "يحجب التطبيقات المشتتة", "نافذة وقت الفراغ", "ست لغات", "يعمل دون اتصال"]};
 var S=[8,9,6,5,7,3],M=[5,15,15,30,90,120],lang='en',T=30;
-var els=[].slice.call(document.querySelectorAll('[data-k]')),EN={};
+var EN_DESC=document.querySelector('meta[name=description]').content;var els=[].slice.call(document.querySelectorAll('[data-k]')),EN={};
 els.forEach(function(e){EN[e.getAttribute('data-k')]=e.innerHTML});
 var list=document.getElementById('list'),pick=document.getElementById('pick'),times=document.getElementById('times'),ring=document.getElementById('ring'),rn=document.getElementById('rnote'),lb=document.getElementById('lang');
 [15,30,60,120].forEach(function(t){var b=document.createElement('button');b.dataset.t=t;b.onclick=function(){T=t;render()};times.appendChild(b)});
@@ -242,7 +263,7 @@ function setLang(l){
   lang=l;var d=document.documentElement;d.lang=l;d.dir=l=='ar'?'rtl':'ltr';
   els.forEach(function(e){var k=e.getAttribute('data-k');e.innerHTML=(l=='ar'&&AR[k]!==undefined)?AR[k]:EN[k]});
   document.title=l=='ar'?AR.title:"MLE Studio - Simple apps that help you get things done";
-  lb.textContent=UI[l].btn;
+  lb.textContent=UI[l].btn;var md=document.querySelector('meta[name=description]');if(md)md.content=l=='ar'?AR.desc:EN_DESC;
   document.getElementById('rib').innerHTML=(RIB[l].map(function(x){return'<span>'+x+'</span>'}).join('')).repeat(4);
   try{localStorage.setItem('lang',l)}catch(e){}
   render();
