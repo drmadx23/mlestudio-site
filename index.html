@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MLE Studio - Simple apps that help you get things done</title>
+<meta name="description" content="MLE Studio builds mobile apps that solve everyday problems with clear, thoughtful design.">
+<meta name="theme-color" content="#0b1020">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{
+  --bg:#0b1020;--fg:#e9edf9;--muted:#a3aecb;--accent:#8b7bff;--line:#1d2542;--card:#131a33;
+  --grad:linear-gradient(135deg,#7c5cff,#22d3ee);--radius:14px;
+}
+body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
+a{color:inherit}
+.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+
+header{border-bottom:1px solid var(--line)}
+header .wrap{display:flex;justify-content:space-between;align-items:center;height:68px;gap:16px}
+.brand{font-weight:800;font-size:21px;color:var(--accent);text-decoration:none;letter-spacing:.2px;white-space:nowrap}
+nav{display:flex;align-items:center;gap:22px}
+nav a{color:var(--muted);text-decoration:none;font-size:15px}
+nav a:hover{color:var(--fg)}
+#lang{background:transparent;border:1px solid var(--line);color:var(--fg);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:14px;font-family:inherit}
+#lang:hover{border-color:var(--accent)}
+
+.hero{background:radial-gradient(900px 340px at 20% 0%,#2a2470 0%,#0b1020 70%);padding:96px 0}
+.hero h1{font-size:48px;line-height:1.18;font-weight:800;max-width:680px}
+.hero p{margin-top:18px;max-width:560px;color:var(--muted);font-size:18px}
+.btn{display:inline-block;margin-top:30px;padding:13px 28px;background:var(--grad);color:#07101f;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:15px}
+.btn:hover{filter:brightness(1.08)}
+
+section.pad{padding:64px 0;border-top:1px solid var(--line)}
+section.pad h2{font-size:28px;margin-bottom:22px;font-weight:800}
+section.pad p{max-width:640px;color:var(--muted)}
+
+.card{display:flex;gap:20px;align-items:center;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);max-width:660px}
+.icon{width:72px;height:72px;border-radius:18px;background:var(--grad);flex:none;display:grid;place-items:center;color:#07101f;font-weight:800;font-size:30px}
+.card h3{font-size:19px;margin-bottom:4px}
+.card p{font-size:15px;margin-bottom:14px}
+.card .btn{margin-top:0;padding:10px 20px;font-size:14px}
+
+.contact a{color:var(--accent);font-weight:600}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer a{color:var(--accent)}
+
+@media(max-width:700px){
+  .wrap{padding:0 20px}
+  .hero{padding:56px 0}
+  .hero h1{font-size:32px}
+  nav{gap:14px}
+  nav a{display:none}
+  .card{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="brand" href="#top">MLE Studio</a>
+    <nav>
+      <a href="#apps" data-k="nav_apps">Apps</a>
+      <a href="#about" data-k="nav_about">About</a>
+      <a href="#contact" data-k="nav_contact">Contact</a>
+      <button id="lang" type="button">عربي</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1 data-k="h1">Simple apps that help you get things done.</h1>
+      <p data-k="sub">MLE Studio builds mobile apps that solve everyday problems with clear, thoughtful design.</p>
+      <a class="btn" href="#apps" data-k="cta">See our apps</a>
+    </div>
+  </section>
+
+  <section class="pad" id="apps">
+    <div class="wrap">
+      <h2 data-k="apps_t">Our apps</h2>
+      <div class="card">
+        <div class="icon" aria-hidden="true">P</div>
+        <div>
+          <h3>Progrex: Beat Procrastination</h3>
+          <p data-k="app_desc">An app that helps you beat procrastination and make steady progress.</p>
+          <a class="btn" href="https://play.google.com/store/apps/details?id=com.progrex.app" data-k="app_btn">Get it on Google Play</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pad" id="about">
+    <div class="wrap">
+      <h2 data-k="about_t">About</h2>
+      <p data-k="about_p">MLE Studio is an independent software studio in Saudi Arabia. We design and publish apps that offer practical solutions to everyday challenges.</p>
+    </div>
+  </section>
+
+  <section class="pad contact" id="contact">
+    <div class="wrap">
+      <h2 data-k="contact_t">Contact</h2>
+      <p><span data-k="contact_p">Questions or feedback? Write to us:</span> <a href="mailto:MLE.studio@hotmail.com">MLE.studio@hotmail.com</a></p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div data-k="legal">&copy; 2026 MLE Studio &mdash; ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions</div>
+    <div><a href="https://drmadx23.github.io/progrex-privacy/" data-k="privacy">Privacy Policy</a></div>
+  </div>
+</footer>
+
+<script>
+var T={
+  en:{
+    title:"MLE Studio - Simple apps that help you get things done",
+    desc:"MLE Studio builds mobile apps that solve everyday problems with clear, thoughtful design.",
+    nav_apps:"Apps",nav_about:"About",nav_contact:"Contact",
+    h1:"Simple apps that help you get things done.",
+    sub:"MLE Studio builds mobile apps that solve everyday problems with clear, thoughtful design.",
+    cta:"See our apps",apps_t:"Our apps",
+    app_desc:"An app that helps you beat procrastination and make steady progress.",
+    app_btn:"Get it on Google Play",
+    about_t:"About",
+    about_p:"MLE Studio is an independent software studio in Saudi Arabia. We design and publish apps that offer practical solutions to everyday challenges.",
+    contact_t:"Contact",contact_p:"Questions or feedback? Write to us:",
+    privacy:"Privacy Policy",
+    legal:"© 2026 MLE Studio — ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions"
+  },
+  ar:{
+    title:"MLE Studio - تطبيقات بسيطة تساعدك على إنجاز مهامك",
+    desc:"يصمم MLE Studio تطبيقات جوال تحلّ مشكلات الحياة اليومية بتصميم واضح ومدروس.",
+    nav_apps:"التطبيقات",nav_about:"من نحن",nav_contact:"تواصل معنا",
+    h1:"تطبيقات بسيطة تساعدك على إنجاز مهامك.",
+    sub:"يصمم MLE Studio تطبيقات جوال تحلّ مشكلات الحياة اليومية بتصميم واضح ومدروس.",
+    cta:"تصفّح تطبيقاتنا",apps_t:"تطبيقاتنا",
+    app_desc:"تطبيق يساعدك على التغلب على التسويف وتحقيق تقدم مستمر.",
+    app_btn:"حمّله من Google Play",
+    about_t:"من نحن",
+    about_p:"MLE Studio استوديو برمجيات مستقل في المملكة العربية السعودية. نصمم وننشر تطبيقات تقدم حلولاً عملية للتحديات اليومية.",
+    contact_t:"تواصل معنا",contact_p:"لديك سؤال أو ملاحظة؟ راسلنا:",
+    privacy:"سياسة الخصوصية",
+    legal:"© 2026 MLE Studio — مؤسسة عبدالهادي محمد جحاف للحلول المبتكرة"
+  }
+};
+function setLang(l){
+  var root=document.documentElement;
+  root.lang=l; root.dir=(l==='ar')?'rtl':'ltr';
+  document.querySelectorAll('[data-k]').forEach(function(e){
+    var v=T[l][e.getAttribute('data-k')];
+    if(v!==undefined){e.textContent=v;}
+  });
+  document.getElementById('lang').textContent=(l==='ar')?'English':'عربي';
+  document.title=T[l].title;
+  var m=document.querySelector('meta[name="description"]');
+  if(m){m.setAttribute('content',T[l].desc);}
+  try{localStorage.setItem('lang',l);}catch(e){}
+}
+document.getElementById('lang').addEventListener('click',function(){
+  setLang(document.documentElement.lang==='ar'?'en':'ar');
+});
+var saved=null;
+try{saved=localStorage.getItem('lang');}catch(e){}
+if(saved!=='en'&&saved!=='ar'){
+  saved=((navigator.language||'').toLowerCase().indexOf('ar')===0)?'ar':'en';
+}
+if(saved==='ar'){setLang('ar');}
+</script>
+</body>
+</html>
