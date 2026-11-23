@@ -1,177 +1,244 @@
 <!doctype html>
-<html lang="en" dir="ltr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>MLE Studio - Simple apps that help you get things done</title>
-<meta name="description" content="MLE Studio builds mobile apps that solve everyday problems with clear, thoughtful design.">
-<meta name="theme-color" content="#0b1020">
+<meta name="description" content="MLE Studio builds Progrex, an app that picks the one task that fits the time you have. Works offline, no ads, no tracking.">
+<meta name="theme-color" content="#07080f">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-:root{
-  --bg:#0b1020;--fg:#e9edf9;--muted:#a3aecb;--accent:#8b7bff;--line:#1d2542;--card:#131a33;
-  --grad:linear-gradient(135deg,#7c5cff,#22d3ee);--radius:14px;
-}
-body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.6}
-a{color:inherit}
-.wrap{max-width:1040px;margin:0 auto;padding:0 24px}
-
-header{border-bottom:1px solid var(--line)}
-header .wrap{display:flex;justify-content:space-between;align-items:center;height:68px;gap:16px}
-.brand{font-weight:800;font-size:21px;color:var(--accent);text-decoration:none;letter-spacing:.2px;white-space:nowrap}
-nav{display:flex;align-items:center;gap:22px}
-nav a{color:var(--muted);text-decoration:none;font-size:15px}
-nav a:hover{color:var(--fg)}
-#lang{background:transparent;border:1px solid var(--line);color:var(--fg);padding:6px 14px;border-radius:999px;cursor:pointer;font-size:14px;font-family:inherit}
-#lang:hover{border-color:var(--accent)}
-
-.hero{background:radial-gradient(900px 340px at 20% 0%,#2a2470 0%,#0b1020 70%);padding:96px 0}
-.hero h1{font-size:48px;line-height:1.18;font-weight:800;max-width:680px}
-.hero p{margin-top:18px;max-width:560px;color:var(--muted);font-size:18px}
-.btn{display:inline-block;margin-top:30px;padding:13px 28px;background:var(--grad);color:#07101f;border-radius:var(--radius);text-decoration:none;font-weight:700;font-size:15px}
-.btn:hover{filter:brightness(1.08)}
-
-section.pad{padding:64px 0;border-top:1px solid var(--line)}
-section.pad h2{font-size:28px;margin-bottom:22px;font-weight:800}
-section.pad p{max-width:640px;color:var(--muted)}
-
-.card{display:flex;gap:20px;align-items:center;padding:24px;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);max-width:660px}
-.icon{width:72px;height:72px;border-radius:18px;background:var(--grad);flex:none;display:grid;place-items:center;color:#07101f;font-weight:800;font-size:30px}
-.card h3{font-size:19px;margin-bottom:4px}
-.card p{font-size:15px;margin-bottom:14px}
-.card .btn{margin-top:0;padding:10px 20px;font-size:14px}
-
-.contact a{color:var(--accent);font-weight:600}
-footer{border-top:1px solid var(--line);padding:28px 0;color:var(--muted);font-size:13px}
-footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
-footer a{color:var(--accent)}
-
-@media(max-width:700px){
-  .wrap{padding:0 20px}
-  .hero{padding:56px 0}
-  .hero h1{font-size:32px}
-  nav{gap:14px}
-  nav a{display:none}
-  .card{flex-direction:column;align-items:flex-start}
-}
-</style>
-</head>
-<body>
+:root{--bg:#07080f;--fg:#f1f3ff;--mut:#b7bedf;--acc:#ff8a4c;--v:#8b6bff;--c:#27d3ee;--p:#ff5fa2;--glass:#ffffff12;--gl:#ffffff26}
+body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+/* aurora */
+.aur{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aur i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:drift 18s ease-in-out infinite alternate}
+.aur i:nth-child(1){width:560px;height:560px;background:var(--v);left:-140px;top:-120px}
+.aur i:nth-child(2){width:520px;height:520px;background:var(--c);right:-160px;top:10%;animation-delay:-6s;opacity:.38}
+.aur i:nth-child(3){width:480px;height:480px;background:var(--p);left:30%;top:55%;animation-delay:-11s;opacity:.28}
+.aur i:nth-child(4){width:400px;height:400px;background:var(--acc);right:5%;bottom:-120px;animation-delay:-3s;opacity:.3}
+@keyframes drift{to{transform:translate(80px,60px) scale(1.18)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>")}
+#spot{position:fixed;z-index:1;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(#ffffff14,transparent 65%);pointer-events:none;left:50%;top:30%}
+main,header,footer{position:relative;z-index:2}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+/* nav */
+header{position:sticky;top:14px;z-index:10;margin:14px auto 0;max-width:1064px;padding:11px 14px 11px 24px;border-radius:99px;background:#0b0e1c99;border:1px solid var(--gl);backdrop-filter:blur(18px);display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:800;font-size:19px;letter-spacing:.2px;background:linear-gradient(90deg,#c7b8ff,#7ee7ff);-webkit-background-clip:text;color:transparent}
+nav{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--mut)}
+nav a{padding:8px 14px;border-radius:99px}nav a:hover{background:#ffffff14;color:#fff}
+nav .lang{border:1px solid var(--gl);color:#fff}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:80px 0 70px}
+.tag{display:inline-flex;gap:8px;align-items:center;padding:7px 15px;border-radius:99px;background:var(--glass);border:1px solid var(--gl);font-size:13px;color:#d7dcff}
+.tag b{width:8px;height:8px;border-radius:50%;background:#46e39a;box-shadow:0 0 12px #46e39a}
+h1{font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-2px;margin-top:20px}
+h1 em{font-style:normal;background:linear-gradient(90deg,#c7b8ff,#7ee7ff 45%,#ffb18a);-webkit-background-clip:text;color:transparent;background-size:200%;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.hero p.lead{margin-top:20px;font-size:19px;color:var(--mut);max-width:500px}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:15px 28px;border-radius:99px;font-weight:700;font-size:15px;display:inline-flex;gap:10px;align-items:center;transition:transform .2s,box-shadow .2s;cursor:pointer;border:0;font-family:inherit}
+.btn.p{background:linear-gradient(135deg,var(--acc),#ff5fa2);color:#1a0b05;box-shadow:0 12px 34px #ff8a4c55}
+.btn.p:hover{transform:translateY(-3px);box-shadow:0 18px 44px #ff8a4c88}
+.btn.g{background:var(--glass);border:1px solid var(--gl);color:#fff}.btn.g:hover{background:#ffffff1f}
+.mini{margin-top:26px;display:flex;gap:22px;color:var(--mut);font-size:13px;flex-wrap:wrap}.mini span::before{content:"\2713 ";color:#46e39a}
+/* phone */
+.stage{perspective:1100px;display:grid;place-items:center;position:relative;min-height:560px}
+.ph{width:270px;aspect-ratio:1116/2198;border-radius:38px;padding:9px;background:linear-gradient(145deg,#3a3f5c,#0c0e18);box-shadow:0 40px 90px #000a,0 0 90px #8b6bff44;position:relative;transition:transform .15s ease-out;transform-style:preserve-3d}
+.ph img{width:100%;height:100%;object-fit:cover;border-radius:30px;display:block}
+.ph.sm{width:230px}
+.chip{position:absolute;padding:11px 15px;border-radius:18px;background:#14172bcc;border:1px solid var(--gl);backdrop-filter:blur(14px);font-size:13px;box-shadow:0 14px 34px #0008;animation:bob 6s ease-in-out infinite;transform:translateZ(60px)}
+.chip b{display:block;font-size:14px}.chip small{color:var(--mut)}
+.c1{left:-30px;top:70px}.c2{right:-34px;top:250px;animation-delay:-2s}.c3{left:-14px;bottom:70px;animation-delay:-4s}
+@keyframes bob{50%{translate:0 -14px}}
+/* ribbon */
+.ribbon{overflow:hidden;border-block:1px solid var(--gl);background:#ffffff08;padding:16px 0;margin:10px 0 0;white-space:nowrap}
+.ribbon div{display:inline-block;animation:slide 40s linear infinite;color:var(--mut);font-size:15px}
+.ribbon span{margin:0 26px}.ribbon span::before{content:"\2726  ";color:var(--acc)}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:96px 0}
+.eyebrow{color:var(--acc);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:clamp(30px,4.2vw,46px);line-height:1.08;letter-spacing:-1.2px;margin:12px 0 14px}
+.sub{color:var(--mut);font-size:18px;max-width:600px}
+/* demo */
+.demo{margin-top:42px;display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:stretch}
+.panel{border-radius:28px;background:var(--glass);border:1px solid var(--gl);backdrop-filter:blur(16px);padding:28px}
+.times{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+.times button{padding:13px 22px;border-radius:99px;border:1px solid var(--gl);background:#ffffff0d;color:#fff;font:600 15px inherit;cursor:pointer;transition:.2s}
+.times button:hover{background:#ffffff1f}.times button.on{background:linear-gradient(135deg,var(--acc),var(--p));color:#1a0b05;border-color:transparent;box-shadow:0 10px 28px #ff8a4c55}
+.hint{color:var(--mut);font-size:14px}
+.pick{margin-top:22px;padding:20px;border-radius:20px;background:linear-gradient(135deg,#ff8a4c22,#ff5fa222);border:1px solid #ff8a4c66}
+.pick small{color:#ffc3a3;font-weight:700;letter-spacing:1px;font-size:12px}
+.pick h4{font-size:21px;margin:4px 0 12px}
+.list{display:flex;flex-direction:column;gap:10px}
+.task{display:flex;align-items:center;gap:14px;padding:15px 17px;border-radius:16px;background:#ffffff0d;border:1px solid var(--gl);animation:pop .45s both}
+.task.top{background:#ff8a4c1f;border-color:#ff8a4c88}
+.task .n{flex:1}.task .n b{display:block;font-size:15px}.task .n small{color:var(--mut);font-size:12.5px}
+.task .m{font-size:13px;padding:5px 11px;border-radius:99px;background:#ffffff1a}
+.task.no{opacity:.35;filter:grayscale(1)}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97)}}
+.ring{width:112px;height:112px;position:relative;display:none;margin:4px 0 0}
+.ring.show{display:block}.ring svg{transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring .bg{stroke:#ffffff20}.ring .fg{stroke:url(#g);stroke-dasharray:289;stroke-dashoffset:289}
+.ring.show .fg{animation:fill 6s linear forwards}@keyframes fill{to{stroke-dashoffset:0}}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:22px}
+/* features */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;padding:60px 0}
+.feat.rev .txt{order:2}
+.feat .vis{display:grid;place-items:center}
+.feat ul{margin-top:18px;list-style:none;display:grid;gap:10px;color:var(--mut)}
+.feat li::before{content:"\2192  ";color:var(--acc);font-weight:700}
+.rv{opacity:0;transform:translateY(46px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.tilt{transition:transform .2s}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.bento div{padding:24px;border-radius:24px;background:var(--glass);border:1px solid var(--gl);backdrop-filter:blur(12px);transition:.25s}
+.bento div:hover{transform:translateY(-6px);background:#ffffff1c}
+.bento b{display:block;font-size:30px;background:linear-gradient(90deg,#c7b8ff,#7ee7ff);-webkit-background-clip:text;color:transparent;margin-bottom:4px}
+.bento span{color:var(--mut);font-size:14px}.bento .w2{grid-column:span 2}
+/* download */
+.dl{margin:20px 0 90px;border-radius:36px;padding:60px 40px;text-align:center;background:linear-gradient(135deg,#ff8a4c33,#8b6bff33,#27d3ee22);border:1px solid var(--gl);position:relative;overflow:hidden}
+.dl img{width:104px;height:104px;border-radius:26px;box-shadow:0 20px 50px #000a,0 0 60px #ff8a4c66;animation:bob 5s ease-in-out infinite}
+.dl h2{margin-top:22px}.dl .cta{justify-content:center}
+.contactrow{display:flex;gap:14px;justify-content:center;margin-top:18px;color:var(--mut);font-size:14px;flex-wrap:wrap}
+footer{padding:0 0 30px}
+.foot{border-radius:24px;border:1px solid var(--gl);background:var(--glass);padding:20px 26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--mut);font-size:13px}
+@media(max-width:860px){.hero,.demo,.feat{grid-template-columns:1fr}.feat.rev .txt{order:0}.bento{grid-template-columns:1fr 1fr}.chip{display:none}.stage{min-height:auto}nav a:not(.lang){display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+[dir=rtl] h1,[dir=rtl] h2{letter-spacing:0}
+[dir=rtl] .feat li::before{content:"\2190  "}
+[dir=rtl] .eyebrow{letter-spacing:0}
+[dir=rtl] .ring{margin:4px 0 0 auto}
+</style></head><body>
+<div class="aur"><i></i><i></i><i></i><i></i></div><div class="grain"></div><div id="spot"></div>
 
 <header>
-  <div class="wrap">
-    <a class="brand" href="#top">MLE Studio</a>
-    <nav>
-      <a href="#apps" data-k="nav_apps">Apps</a>
-      <a href="#about" data-k="nav_about">About</a>
-      <a href="#contact" data-k="nav_contact">Contact</a>
-      <button id="lang" type="button">عربي</button>
-    </nav>
-  </div>
+  <a class="brand" href="#top">MLE Studio</a>
+  <nav><a href="#demo" data-k="nav_try">Try it</a><a href="#features" data-k="nav_feat">Features</a><a href="#get" data-k="nav_get">Get the app</a><a class="lang" href="#" id="lang">عربي</a></nav>
 </header>
 
-<main id="top">
-  <section class="hero">
-    <div class="wrap">
-      <h1 data-k="h1">Simple apps that help you get things done.</h1>
-      <p data-k="sub">MLE Studio builds mobile apps that solve everyday problems with clear, thoughtful design.</p>
-      <a class="btn" href="#apps" data-k="cta">See our apps</a>
+<main id="top"><div class="wrap">
+  <div class="hero">
+    <div>
+      <span class="tag"><b></b><span data-k="tag">Progrex is on Google Play</span></span>
+      <h1 data-k="h1">Stop planning.<br><em>Start the one that fits.</em></h1>
+      <p class="lead" data-k="lead">You know what you should be doing. Progrex closes the gap between knowing and starting: tell it how much time you have, and it picks the task that really fits.</p>
+      <div class="cta"><a class="btn p" href="#get" data-k="cta1">Get Progrex on Google Play</a><a class="btn g" href="#demo" data-k="cta2">Try the idea &darr;</a></div>
+      <div class="mini"><span data-k="m1">Works offline</span><span data-k="m2">No ads, no tracking</span><span data-k="m3">Six languages</span></div>
     </div>
-  </section>
-
-  <section class="pad" id="apps">
-    <div class="wrap">
-      <h2 data-k="apps_t">Our apps</h2>
-      <div class="card">
-        <div class="icon" aria-hidden="true">P</div>
-        <div>
-          <h3>Progrex: Beat Procrastination</h3>
-          <p data-k="app_desc">An app that helps you beat procrastination and make steady progress.</p>
-          <a class="btn" href="https://play.google.com/store/apps/details?id=com.progrex.app" data-k="app_btn">Get it on Google Play</a>
-        </div>
-      </div>
+    <div class="stage" id="stage">
+      <div class="ph" id="phone"><img src="img/now.jpg" alt="Progrex main screen"></div>
+      <div class="chip c1"><b data-k="c1a">Fits your 30 min</b><small data-k="c1b">Pay the electricity bill</small></div>
+      <div class="chip c2"><b data-k="c2a">Stuck on this?</b><small data-k="c2b">Every reason has a next step</small></div>
+      <div class="chip c3"><b data-k="c3a">8-day streak</b><small data-k="c3b">moves only with real work</small></div>
     </div>
-  </section>
-
-  <section class="pad" id="about">
-    <div class="wrap">
-      <h2 data-k="about_t">About</h2>
-      <p data-k="about_p">MLE Studio is an independent software studio in Saudi Arabia. We design and publish apps that offer practical solutions to everyday challenges.</p>
-    </div>
-  </section>
-
-  <section class="pad contact" id="contact">
-    <div class="wrap">
-      <h2 data-k="contact_t">Contact</h2>
-      <p><span data-k="contact_p">Questions or feedback? Write to us:</span> <a href="mailto:MLE.studio@hotmail.com">MLE.studio@hotmail.com</a></p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div data-k="legal">&copy; 2026 MLE Studio &mdash; ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions</div>
-    <div><a href="https://drmadx23.github.io/progrex-privacy/" data-k="privacy">Privacy Policy</a></div>
   </div>
-</footer>
+</div>
+<div class="ribbon"><div id="rib"></div></div>
+
+<div class="wrap">
+<section id="demo">
+  <span class="eyebrow" data-k="d_eye">Try it right now</span>
+  <h2 data-k="d_h">How much time do you really have?</h2>
+  <p class="sub" data-k="d_sub">This is the whole idea. Pick a window and watch your task list rearrange itself around it.</p>
+  <div class="demo">
+    <div class="panel">
+      <div class="hint" data-k="d_have">I have&hellip;</div>
+      <div class="times" id="times"></div>
+      <div class="pick" id="pick"></div>
+      <div class="ring" id="ring"><svg width="112" height="112"><defs><linearGradient id="g"><stop offset="0" stop-color="#ff8a4c"/><stop offset="1" stop-color="#ff5fa2"/></linearGradient></defs><circle class="bg" cx="56" cy="56" r="46"/><circle class="fg" cx="56" cy="56" r="46"/></svg><span>2:00</span></div>
+      <p class="hint" id="rnote" style="margin-top:8px"></p>
+    </div>
+    <div class="panel"><div class="list" id="list"></div></div>
+  </div>
+</section>
+
+<section id="features">
+  <span class="eyebrow" data-k="f_eye">What's inside</span>
+  <h2 data-k="f_h">Built for the days you can't start.</h2>
+  <p class="sub" data-k="f_sub">Every task app assumes you will start. Progrex assumes you might not.</p>
+
+  <div class="feat rv">
+    <div class="txt"><span class="eyebrow" data-k="a_eye">When you freeze</span><h2 data-k="a_h">"Stuck on this?" has an answer.</h2>
+      <p class="sub" data-k="a_p">Tap it and Progrex asks why. Every reason leads to something the app actually does about it.</p>
+      <ul><li data-k="a_1">Too big? It helps you name one concrete first step.</li><li data-k="a_2">Too tired? It moves the task to the hour your energy works.</li><li data-k="a_3">Not sure it matters? It shows your own answer back next time.</li></ul></div>
+    <div class="vis"><div class="ph sm tilt"><img src="img/stuck.jpg" alt="Stuck reasons"></div></div>
+  </div>
+
+  <div class="feat rev rv">
+    <div class="txt"><span class="eyebrow" data-k="b_eye">Right on your home screen</span><h2 data-k="b_h">Your month, at a glance.</h2>
+      <p class="sub" data-k="b_p">The Month widget shows every task on the day it is due. Tap a day to finish or add tasks without opening the app.</p>
+      <ul><li data-k="b_1">A second widget lists today.</li><li data-k="b_2">Five looks to choose from.</li><li data-k="b_3">A small card can even ask you for a free moment.</li></ul></div>
+    <div class="vis"><div class="ph sm tilt"><img src="img/month.jpg" alt="Month widget"></div></div>
+  </div>
+
+  <div class="feat rv">
+    <div class="txt"><span class="eyebrow" data-k="c_eye">Something to come back to</span><h2 data-k="c_h">A little world that grows when you do.</h2>
+      <p class="sub" data-k="c_p">Rex, a small flame, cheers your first win. Sprout grows from a seed as you finish tasks, and in the tank your finished tasks become fish.</p>
+      <ul><li data-k="c_1">Optional, never nagging.</li><li data-k="c_2">Streaks and badges that only move with real work.</li></ul></div>
+    <div class="vis"><div class="ph sm tilt"><img src="img/garden.jpg" alt="Garden"></div></div>
+  </div>
+
+  <div class="bento rv">
+    <div><b data-k="e1a">Peers</b><span data-k="e1b">Hand a task to a friend. Only they can mark it done.</span></div>
+    <div><b data-k="e2a">2 min</b><span data-k="e2b">A two-minute on-ramp. Stop with no guilt if you want.</span></div>
+    <div class="w2"><b data-k="e3a">Your data is yours</b><span data-k="e3b">Works offline and keeps your tasks on your device. No account needed. No ads, no tracking, no profile built about you.</span></div>
+  </div>
+</section>
+
+<section id="get" style="padding-top:20px">
+  <div class="dl rv">
+    <img src="img/icon.png" alt="Progrex">
+    <h2 data-k="g_h">Pick one. Make it small. Start the clock.</h2>
+    <p class="sub" style="margin:0 auto" data-k="g_sub">Progrex: Beat Procrastination, by MLE Studio.</p>
+    <div class="cta"><a class="btn p" href="https://play.google.com/store/apps/details?id=com.progrex.app" data-k="g_btn">Get it on Google Play</a></div>
+    <div class="contactrow"><span><span data-k="g_q">Questions?</span> <a href="mailto:MLE.studio@hotmail.com">MLE.studio@hotmail.com</a></span><span>&middot;</span><a href="https://drmadx23.github.io/progrex-privacy/" data-k="g_priv">Privacy Policy</a></div>
+  </div>
+</section>
+</div></main>
+
+<footer><div class="wrap"><div class="foot"><div>&copy; 2026 MLE Studio &mdash; ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions</div><div><span data-k="reg">Commercial Register</span> 7055617893</div></div></div></footer>
 
 <script>
-var T={
-  en:{
-    title:"MLE Studio - Simple apps that help you get things done",
-    desc:"MLE Studio builds mobile apps that solve everyday problems with clear, thoughtful design.",
-    nav_apps:"Apps",nav_about:"About",nav_contact:"Contact",
-    h1:"Simple apps that help you get things done.",
-    sub:"MLE Studio builds mobile apps that solve everyday problems with clear, thoughtful design.",
-    cta:"See our apps",apps_t:"Our apps",
-    app_desc:"An app that helps you beat procrastination and make steady progress.",
-    app_btn:"Get it on Google Play",
-    about_t:"About",
-    about_p:"MLE Studio is an independent software studio in Saudi Arabia. We design and publish apps that offer practical solutions to everyday challenges.",
-    contact_t:"Contact",contact_p:"Questions or feedback? Write to us:",
-    privacy:"Privacy Policy",
-    legal:"© 2026 MLE Studio — ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions"
-  },
-  ar:{
-    title:"MLE Studio - تطبيقات بسيطة تساعدك على إنجاز مهامك",
-    desc:"يصمم MLE Studio تطبيقات جوال تحلّ مشكلات الحياة اليومية بتصميم واضح ومدروس.",
-    nav_apps:"التطبيقات",nav_about:"من نحن",nav_contact:"تواصل معنا",
-    h1:"تطبيقات بسيطة تساعدك على إنجاز مهامك.",
-    sub:"يصمم MLE Studio تطبيقات جوال تحلّ مشكلات الحياة اليومية بتصميم واضح ومدروس.",
-    cta:"تصفّح تطبيقاتنا",apps_t:"تطبيقاتنا",
-    app_desc:"تطبيق يساعدك على التغلب على التسويف وتحقيق تقدم مستمر.",
-    app_btn:"حمّله من Google Play",
-    about_t:"من نحن",
-    about_p:"MLE Studio استوديو برمجيات مستقل في المملكة العربية السعودية. نصمم وننشر تطبيقات تقدم حلولاً عملية للتحديات اليومية.",
-    contact_t:"تواصل معنا",contact_p:"لديك سؤال أو ملاحظة؟ راسلنا:",
-    privacy:"سياسة الخصوصية",
-    legal:"© 2026 MLE Studio — مؤسسة عبدالهادي محمد جحاف للحلول المبتكرة"
-  }
-};
+var AR={"title": "MLE Studio - تطبيقات بسيطة تساعدك على إنجاز مهامك", "nav_try": "جرّبه", "nav_feat": "المزايا", "nav_get": "حمّل التطبيق", "tag": "Progrex متوفر على Google Play", "h1": "توقّف عن التخطيط.<br><em>ابدأ بالمهمة التي تناسب وقتك.</em>", "lead": "أنت تعرف ما يجب عليك فعله. Progrex يسدّ الفجوة بين المعرفة والبدء: أخبره كم من الوقت لديك، فيختار المهمة التي تناسبه فعلًا.", "cta1": "حمّل Progrex من Google Play", "cta2": "جرّب الفكرة &darr;", "m1": "يعمل دون اتصال", "m2": "بلا إعلانات ولا تتبّع", "m3": "ست لغات", "c1a": "يناسب 30 دقيقة", "c1b": "ادفع فاتورة الكهرباء", "c2a": "عالق في هذه المهمة؟", "c2b": "لكل سبب خطوة تالية", "c3a": "سلسلة 8 أيام", "c3b": "لا تتقدم إلا مع العمل الحقيقي", "d_eye": "جرّبه الآن", "d_h": "كم من الوقت لديك فعلًا؟", "d_sub": "هذه هي الفكرة كلها. اختر نافذة زمنية وشاهد قائمة مهامك تعيد ترتيب نفسها حولها.", "d_have": "لدي&hellip;", "f_eye": "ما بداخله", "f_h": "صُمّم للأيام التي لا تستطيع فيها البدء.", "f_sub": "كل تطبيق مهام يفترض أنك ستبدأ. Progrex يفترض أنك قد لا تبدأ.", "a_eye": "عندما تتجمّد", "a_h": "«عالق في هذه المهمة؟» له جواب.", "a_p": "اضغط عليه فيسألك Progrex عن السبب، وكل سبب يقود إلى شيء يفعله التطبيق فعلًا.", "a_1": "المهمة كبيرة؟ يساعدك على تسمية خطوة أولى واضحة.", "a_2": "متعب؟ ينقل المهمة إلى الساعة التي تعمل فيها طاقتك.", "a_3": "لست متأكدًا أنها تهم؟ يعرض لك إجابتك في المرة القادمة.", "b_eye": "على شاشتك الرئيسية", "b_h": "شهرك في لمحة.", "b_p": "تعرض أداة الشهر كل مهمة في يوم استحقاقها. اضغط على يوم لإنهاء المهام أو إضافتها دون فتح التطبيق.", "b_1": "أداة ثانية تعرض مهام اليوم.", "b_2": "خمسة أشكال للاختيار.", "b_3": "وقد تسألك بطاقة صغيرة عن لحظة فراغ.", "c_eye": "شيء تعود إليه", "c_h": "عالم صغير ينمو معك.", "c_p": "ريكس، لهب صغير، يحتفي بأول إنجاز لك. وSprout ينمو من بذرة كلما أنهيت مهمة، وفي الحوض تتحوّل مهامك المنجزة إلى أسماك.", "c_1": "اختياري، ولا يزعجك أبدًا.", "c_2": "سلاسل وشارات لا تتحرك إلا مع العمل الحقيقي.", "e1a": "الأقران", "e1b": "سلّم مهمة إلى صديق. هو وحده من يستطيع إنهاءها.", "e2a": "دقيقتان", "e2b": "بداية بدقيقتين. توقّف دون شعور بالذنب إن شئت.", "e3a": "بياناتك لك", "e3b": "يعمل دون اتصال ويحتفظ بمهامك على جهازك. لا حاجة إلى حساب. بلا إعلانات ولا تتبّع ولا ملف شخصي عنك.", "g_h": "اختر مهمة. صغّرها. شغّل المؤقت.", "g_sub": "Progrex: Beat Procrastination من MLE Studio.", "g_btn": "حمّل من Google Play", "g_q": "أسئلة؟", "g_priv": "سياسة الخصوصية", "reg": "السجل التجاري"},UI={"en": {"min": "min", "now": "DO THIS NOW", "start": "Start", "nofit": "doesn’t fit", "note": "Two minutes. Stop whenever you want. Most of the time you won’t want to.", "btn": "عربي"}, "ar": {"min": "د", "now": "افعل هذا الآن", "start": "ابدأ", "nofit": "لا تناسب", "note": "دقيقتان فقط. توقّف متى شئت. في الغالب لن تريد التوقف.", "btn": "EN"}},TK=[["Book the dentist", "احجز موعد طبيب الأسنان", "Today 6:00 PM", "اليوم 6:00 م"], ["Pay the electricity bill", "ادفع فاتورة الكهرباء", "Today 6:00 PM", "اليوم 6:00 م"], ["Call the bank about the fee", "اتصل بالبنك بخصوص الرسوم", "Tomorrow", "غدًا"], ["Reply to the landlord", "ردّ على المؤجّر", "Friday", "الجمعة"], ["Draft the project proposal", "اكتب مقترح المشروع", "Next week", "الأسبوع القادم"], ["Reorganise the garage", "رتّب المرآب", "Someday", "يومًا ما"]],RIB={en:["Fits your free time", "Stuck on this?", "Two-minute start", "Month widget", "Quick add by voice", "Focus timer", "Routines & sub-tasks", "Peer accountability", "Light & dark", "Six languages", "Works offline"],ar:["يناسب وقتك الفارغ", "عالق في هذه المهمة؟", "بداية بدقيقتين", "أداة الشهر", "إضافة سريعة بالصوت", "مؤقت التركيز", "روتين ومهام فرعية", "المساءلة مع الأقران", "فاتح وداكن", "ست لغات", "يعمل دون اتصال"]};
+var S=[8,9,6,5,7,3],M=[5,15,15,30,90,120],lang='en',T=30;
+var els=[].slice.call(document.querySelectorAll('[data-k]')),EN={};
+els.forEach(function(e){EN[e.getAttribute('data-k')]=e.innerHTML});
+var list=document.getElementById('list'),pick=document.getElementById('pick'),times=document.getElementById('times'),ring=document.getElementById('ring'),rn=document.getElementById('rnote'),lb=document.getElementById('lang');
+[15,30,60,120].forEach(function(t){var b=document.createElement('button');b.dataset.t=t;b.onclick=function(){T=t;render()};times.appendChild(b)});
+function render(){
+  var u=UI[lang],li=lang=='ar'?1:0;ring.classList.remove('show');rn.textContent='';
+  [].forEach.call(times.children,function(b){b.textContent=b.dataset.t+' '+u.min;b.classList.toggle('on',+b.dataset.t==T)});
+  var all=TK.map(function(x,i){return{n:x[li],d:x[2+li],m:M[i],s:S[i]}});
+  var fit=all.filter(function(x){return x.m<=T}).sort(function(a,b){return b.s-a.s}),no=all.filter(function(x){return x.m>T}),top=fit[0];
+  pick.innerHTML='<small>'+u.now+'</small><h4>'+top.n+'</h4><button class="btn p" id="go" style="padding:11px 22px">&#9654; '+u.start+'</button>';
+  document.getElementById('go').onclick=function(){ring.classList.remove('show');void ring.offsetWidth;ring.classList.add('show');rn.textContent=u.note};
+  list.innerHTML='';
+  fit.concat(no).forEach(function(x,i){var el=document.createElement('div');el.className='task'+(x===top?' top':'')+(x.m>T?' no':'');el.style.animationDelay=(i*60)+'ms';
+    el.innerHTML='<div class="n"><b>'+x.n+'</b><small>'+x.d+(x.m>T?' \u00b7 '+u.nofit+' '+T+' '+u.min:'')+'</small></div><span class="m">'+x.m+' '+u.min+'</span>';list.appendChild(el)});
+}
 function setLang(l){
-  var root=document.documentElement;
-  root.lang=l; root.dir=(l==='ar')?'rtl':'ltr';
-  document.querySelectorAll('[data-k]').forEach(function(e){
-    var v=T[l][e.getAttribute('data-k')];
-    if(v!==undefined){e.textContent=v;}
-  });
-  document.getElementById('lang').textContent=(l==='ar')?'English':'عربي';
-  document.title=T[l].title;
-  var m=document.querySelector('meta[name="description"]');
-  if(m){m.setAttribute('content',T[l].desc);}
-  try{localStorage.setItem('lang',l);}catch(e){}
+  lang=l;var d=document.documentElement;d.lang=l;d.dir=l=='ar'?'rtl':'ltr';
+  els.forEach(function(e){var k=e.getAttribute('data-k');e.innerHTML=(l=='ar'&&AR[k]!==undefined)?AR[k]:EN[k]});
+  document.title=l=='ar'?AR.title:"MLE Studio - Simple apps that help you get things done";
+  lb.textContent=UI[l].btn;
+  document.getElementById('rib').innerHTML=(RIB[l].map(function(x){return'<span>'+x+'</span>'}).join('')).repeat(4);
+  try{localStorage.setItem('lang',l)}catch(e){}
+  render();
 }
-document.getElementById('lang').addEventListener('click',function(){
-  setLang(document.documentElement.lang==='ar'?'en':'ar');
-});
-var saved=null;
-try{saved=localStorage.getItem('lang');}catch(e){}
-if(saved!=='en'&&saved!=='ar'){
-  saved=((navigator.language||'').toLowerCase().indexOf('ar')===0)?'ar':'en';
-}
-if(saved==='ar'){setLang('ar');}
+lb.onclick=function(e){e.preventDefault();setLang(lang=='ar'?'en':'ar')};
+var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+if(!saved)saved=((navigator.language||'').toLowerCase().indexOf('ar')===0)?'ar':'en';
+setLang(saved);
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+var ph=document.getElementById('phone'),st=document.getElementById('stage');
+st.addEventListener('mousemove',function(e){var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.transform='rotateY('+(x*22)+'deg) rotateX('+(-y*16)+'deg)'});
+st.addEventListener('mouseleave',function(){ph.style.transform=''});
+document.querySelectorAll('.tilt').forEach(function(t){t.parentNode.addEventListener('mousemove',function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='perspective(900px) rotateY('+(x*16)+'deg) rotateX('+(-y*12)+'deg)'});t.parentNode.addEventListener('mouseleave',function(){t.style.transform=''})});
+var sp=document.getElementById('spot');document.addEventListener('mousemove',function(e){sp.style.left=e.clientX+'px';sp.style.top=e.clientY+'px'});
 </script>
-</body>
-</html>
+</body></html>
