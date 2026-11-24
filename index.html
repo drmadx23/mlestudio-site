@@ -280,4 +280,5 @@ st.addEventListener('mouseleave',function(){ph.style.transform=''});
 document.querySelectorAll('.tilt').forEach(function(t){t.parentNode.addEventListener('mousemove',function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='perspective(900px) rotateY('+(x*16)+'deg) rotateX('+(-y*12)+'deg)'});t.parentNode.addEventListener('mouseleave',function(){t.style.transform=''})});
 var sp=document.getElementById('spot');document.addEventListener('mousemove',function(e){sp.style.left=e.clientX+'px';sp.style.top=e.clientY+'px'});
 </script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c6738abfbf544b3a8679a1b95c36c2eb"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
