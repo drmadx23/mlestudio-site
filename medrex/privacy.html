@@ -54,12 +54,13 @@ footer{padding:0 0 30px}
  .tocm{display:block;width:100%;padding:13px 14px;border-radius:16px;background:#141728;color:#fff;border:1px solid var(--gl);font-size:16px}
  .top{padding-top:34px}
 }
+[dir=rtl] h1{letter-spacing:0}
 </style></head><body>
 <a class="skip" href="#top">Skip to content</a>
 <div class="aur"><i></i><i></i><i></i></div>
 <header>
   <a class="brand" href="../">MLE Studio</a>
-  <nav><a href="../">&larr; Home</a></nav>
+  <nav><a href="../">&larr; Home</a><a class="lang" href="#" id="lang" role="button" aria-label="Switch language / تغيير اللغة" style="border:1px solid var(--gl);color:#fff">عربي</a></nav>
 </header>
 
 <main id="top"><div class="wrap">
@@ -113,5 +114,24 @@ footer{padding:0 0 30px}
   window.addEventListener('scroll',spy,{passive:true});spy();
   document.getElementById('tocm').addEventListener('change',function(){if(this.value){document.getElementById(this.value).scrollIntoView({behavior:'smooth'});this.value=''}});
 })();
+</script>
+
+<script>
+var AR_MAP={"1 Who we are": "1 من نحن", "2 What stays on your phone": "2 ما يبقى على هاتفك", "3 What goes online, if you share": "3 ما يُرسل عبر الإنترنت إن شاركت", "4 Permissions": "4 الأذونات", "5 Stopping and deleting": "5 الإيقاف والحذف", "6 Who else sees data": "6 من يطّلع على البيانات", "7 Medical notice": "7 إشعار طبي", "8 Children": "8 الأطفال", "9 This website": "9 هذا الموقع", "10 Changes": "10 التغييرات", "What goes online, only if you share": "ما يُرسل عبر الإنترنت، فقط إذا شاركت", "Who we are": "من نحن", "What stays on your phone": "ما يبقى على هاتفك", "Permissions": "الأذونات", "Stopping and deleting": "الإيقاف والحذف", "Who else sees data": "من يطّلع على البيانات", "Medical notice": "إشعار طبي", "Children": "الأطفال", "This website": "هذا الموقع", "Changes": "التغييرات", "Skip to content": "انتقل إلى المحتوى", "← Home": "→ الرئيسية", "Privacy Policy": "سياسة الخصوصية", "Last updated 25 November 2026": "آخر تحديث: 25 نوفمبر 2026", "CONTENTS": "المحتويات", "Jump to a section…": "انتقل إلى قسم…", "Medrex is a medicine reminder app made by MLE Studio (ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions). You can write to us at": "Medrex تطبيق تذكير بالأدوية من إنتاج MLE Studio (ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions). يمكنك مراسلتنا على", "Medicine names, shapes, colours, dose times, notes, stock counts, your dose history, visits, your emergency card, care routines and photos are saved on your phone only. We do not receive them unless you turn on family sharing.": "تُحفظ أسماء الأدوية وأشكالها وألوانها ومواعيد الجرعات والملاحظات وعدد الأقراص المتبقية وسجل جرعاتك ومواعيدك وبطاقة الطوارئ وروتين العناية والصور على هاتفك فقط. ولا نستلمها ما لم تفعّل مشاركة العائلة.", "If you sign in with Google (needed only for the family link), your name and email are stored with Google Firebase Authentication.": "إذا سجّلت الدخول بحساب Google (وهذا مطلوب لربط العائلة فقط)، يُحفظ اسمك وبريدك الإلكتروني لدى Google Firebase Authentication.", "If you let a family member follow you, the following is stored online, in Google Firebase and Cloudflare, so that the people you allowed can see it:": "إذا سمحت لأحد أفراد عائلتك بمتابعتك، يُحفظ ما يلي عبر الإنترنت لدى Google Firebase وCloudflare ليتمكن من سمحت لهم من رؤيته:", "your doses: the medicine name, the time, and whether it was taken, missed or skipped": "جرعاتك: اسم الدواء ووقته، وهل تم تناوله أو فاتك أو تخطيته", "your visits: the doctor, day, time and reason": "مواعيدك: الطبيب واليوم والوقت والسبب", "medicine photos you add": "صور الأدوية التي تضيفها", "the names of the people linked and the change requests they send": "أسماء الأشخاص المرتبطين وطلبات التغيير التي يرسلونها", "a notification token, so a linked phone can be alerted": "رمز الإشعارات، ليصل التنبيه إلى الهاتف المرتبط", "Only the people you allow can see this.": "لا يرى هذا إلا من تسمح لهم.", "Medrex asks for:": "يطلب Medrex ما يلي:", "notifications and exact alarms, so reminders ring on time": "الإشعارات والمنبهات الدقيقة، لترنّ التذكيرات في وقتها", "display over other apps and full-screen alerts, to show the dose alert": "العرض فوق التطبيقات الأخرى والتنبيهات بملء الشاشة، لإظهار تنبيه الجرعة", "vibration": "الاهتزاز", "start after restart, so reminders return after the phone restarts": "التشغيل بعد إعادة التشغيل، لتعود التذكيرات بعد إعادة تشغيل الهاتف", "internet, used by the family link only": "الإنترنت، ويُستخدم لربط العائلة فقط", "camera, only when you take a photo": "الكاميرا، فقط عندما تلتقط صورة", "When you stop sharing, your shared doses, visits, followers, requests and photos are deleted from our servers. Removing the app deletes everything on your phone. To ask us to delete anything else, write to": "عندما توقف المشاركة، تُحذف جرعاتك ومواعيدك المشاركة والمتابعون والطلبات والصور من خوادمنا. وحذف التطبيق يحذف كل شيء من هاتفك. لطلب حذف أي شيء آخر، راسلنا على", "We never sell your information. Google (Firebase) and Cloudflare process shared data for us as service providers, and nobody else receives it. Medrex shows no ads and has no analytics today. If that changes, this page changes first.": "لا نبيع معلوماتك أبدًا. تعالج Google (Firebase) وCloudflare البيانات المشاركة نيابةً عنا بصفتهما مزوّدي خدمة، ولا يستلمها أحد غيرهما. لا يعرض Medrex إعلانات ولا يستخدم أدوات تحليل اليوم. وإن تغيّر ذلك فسنحدّث هذه الصفحة أولًا.", "Medrex is a reminder. It is not a doctor and gives no medical advice. Follow your doctor or pharmacist. In an emergency call your emergency number.": "Medrex تذكير فقط. وهو ليس طبيبًا ولا يقدّم نصيحة طبية. اتبع تعليمات طبيبك أو الصيدلي. وفي حالات الطوارئ اتصل برقم الطوارئ.", "Medrex is not made for children under 13 and we do not knowingly collect their information.": "لم يُصمَّم Medrex للأطفال دون سن 13 عامًا، ولا نجمع معلوماتهم عن علم.", "mlestudio.app counts visits with Cloudflare Web Analytics, which sets no cookies.": "يحسب موقع mlestudio.app الزيارات عبر Cloudflare Web Analytics، الذي لا يضع ملفات تعريف الارتباط.", "If we change this policy we change the date at the top, and we tell you in the app if the change matters to you.": "إذا غيّرنا هذه السياسة فسنغيّر التاريخ في الأعلى، وسنخبرك داخل التطبيق إن كان التغيير يهمك.", "Progrex Privacy Policy": "سياسة خصوصية Progrex", "· Commercial Register 7055617893": "· السجل التجاري 7055617893"};
+var lang='en',nodes=[],md=document.querySelector('meta[name=description]'),EN_TITLE=document.title,EN_DESC=md.content,AR_TITLE='سياسة خصوصية Medrex - MLE Studio',AR_DESC='كيف يتعامل تطبيق Medrex للتذكير بالأدوية مع معلوماتك: ما يبقى على هاتفك، وما يُرسل عبر الإنترنت فقط إذا شاركت، وكيف تحذفه.';
+function tr(t){return lang=='ar'&&AR_MAP[t]!==undefined?AR_MAP[t]:t}
+function collect(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){if(!n.nodeValue.trim())return 2;if(n.parentNode.closest('script,style'))return 2;return 1}}),n;while(n=w.nextNode())nodes.push({n:n,en:n.nodeValue})}
+function setLang(l){
+  lang=l;var d=document.documentElement;d.lang=l;d.dir=l=='ar'?'rtl':'ltr';
+  nodes.forEach(function(o){var m=o.en.match(/^(\s*)([\s\S]*?)(\s*)$/);o.n.nodeValue=m[1]+tr(m[2])+m[3]});
+  document.title=l=='ar'?AR_TITLE:EN_TITLE;md.content=l=='ar'?AR_DESC:EN_DESC;
+  document.getElementById('lang').textContent=l=='ar'?'EN':'عربي';
+  try{localStorage.setItem('lang',l)}catch(e){}
+}
+collect();
+document.getElementById('lang').onclick=function(e){e.preventDefault();setLang(lang=='ar'?'en':'ar')};
+var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+if(!saved)saved=((navigator.language||'').toLowerCase().indexOf('ar')===0)?'ar':'en';
+if(saved=='ar')setLang('ar');
 </script>
 </body></html>
