@@ -137,6 +137,7 @@ a:focus-visible,button:focus-visible{outline:3px solid #7ee7ff;outline-offset:3p
 .next .tx{flex:1}.next h3{font-size:26px;letter-spacing:-.6px;margin:4px 0 6px}.next p{color:var(--mut);font-size:16px}
 .next .btn{background:linear-gradient(135deg,#ffe39a,#F1C75B 60%,#ffb86b);color:#3B2C00;box-shadow:0 12px 34px #f1c75b55;white-space:nowrap}
 @media(max-width:860px){nav a.med{display:inline-block}.next{flex-direction:column;text-align:center;padding:26px 20px}}
+.off{pointer-events:none;opacity:.5;cursor:default}
 </style></head><body>
 <a class="skip" href="#top" data-k="skip">Skip to content</a>
 <div class="aur"><i></i><i></i><i></i><i></i></div><div class="grain"></div><div id="spot"></div>
@@ -285,6 +286,11 @@ st.addEventListener('mousemove',function(e){var r=st.getBoundingClientRect(),x=(
 st.addEventListener('mouseleave',function(){ph.style.transform=''});
 document.querySelectorAll('.tilt').forEach(function(t){t.parentNode.addEventListener('mousemove',function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='perspective(900px) rotateY('+(x*16)+'deg) rotateX('+(-y*12)+'deg)'});t.parentNode.addEventListener('mouseleave',function(){t.style.transform=''})});
 var sp=document.getElementById('spot');document.addEventListener('mousemove',function(e){sp.style.left=e.clientX+'px';sp.style.top=e.clientY+'px'});
+</script>
+<script>
+/* Medrex links: set to true when the app is close to launch and the links work again. */
+var MEDREX_LIVE=false;
+if(!MEDREX_LIVE){document.querySelectorAll('a[href="medrex/"]').forEach(function(a){a.removeAttribute('href');a.setAttribute('aria-disabled','true');a.setAttribute('tabindex','-1');a.classList.add('off')})}
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c6738abfbf544b3a8679a1b95c36c2eb"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
