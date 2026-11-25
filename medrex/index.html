@@ -164,13 +164,14 @@ h1 em{background-image:linear-gradient(90deg,#ffe6a3,#F1C75B 45%,#ff9d6b)}
 .dl{background:linear-gradient(135deg,#f1c75b33,#8b6bff33,#27d3ee22)}
 .dl .app{width:104px;height:104px;border-radius:22%;margin:0 auto;animation:bob 5s ease-in-out infinite}
 .note{color:var(--mut);font-size:13px;margin-top:14px}
+.ph{direction:ltr}
 </style></head><body>
 <a class="skip" href="#top">Skip to content</a>
 <div class="aur"><i></i><i></i><i></i><i></i></div><div class="grain"></div><div id="spot"></div>
 
 <header>
   <a class="brand" href="../">MLE Studio</a>
-  <nav><a href="#demo">Try it</a><a href="#features">Features</a><a href="#get">Coming soon</a></nav>
+  <nav><a href="#demo">Try it</a><a href="#features">Features</a><a href="#get">Coming soon</a><a class="lang" href="#" id="lang" role="button" aria-label="Switch language / تغيير اللغة">عربي</a></nav>
 </header>
 
 <main id="top"><div class="wrap">
@@ -294,6 +295,34 @@ st.addEventListener('mousemove',function(e){var r=st.getBoundingClientRect(),x=(
 st.addEventListener('mouseleave',function(){ph.style.transform=''});
 document.querySelectorAll('.tilt').forEach(function(t){t.parentNode.addEventListener('mousemove',function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='perspective(900px) rotateY('+(x*16)+'deg) rotateX('+(-y*12)+'deg)'});t.parentNode.addEventListener('mouseleave',function(){t.style.transform=''})});
 var sp=document.getElementById('spot');document.addEventListener('mousemove',function(e){sp.style.left=e.clientX+'px';sp.style.top=e.clientY+'px'});
+</script>
+
+<script>
+var AR_MAP={"Skip to content": "انتقل إلى المحتوى", "Try it": "جرّبه", "Features": "المزايا", "Coming soon": "قريبًا", "Coming soon to Google Play": "قريبًا على Google Play", "Your medicine,": "دواؤك", "on time.": "في موعده.", "Medrex is a simple reminder with big buttons and a loud alert. Tap one gold button when you have taken it, and let your family follow along if you want them to.": "Medrex تذكير بسيط بأزرار كبيرة وتنبيه مسموع. اضغط الزر الذهبي بعد أن تتناول دواءك، ودع عائلتك تتابعك إن أردت ذلك.", "Email me when it is ready": "راسلوني عند الإطلاق", "Try the idea ↓": "جرّب الفكرة ↓", "Reminders work offline": "التذكيرات تعمل دون اتصال", "Big, simple buttons": "أزرار كبيرة وبسيطة", "15 languages": "15 لغة", "Time for Blood pressure": "حان وقت دواء الضغط", "Tap Taken when you have taken it": "اضغط «تم» بعد أن تتناوله", "Following up: Mama": "متابعة: ماما", "● Live": "● مباشر", "Doctor tomorrow": "موعد الطبيب غدًا", "Reminded before you go": "نذكّرك قبل الذهاب", "Loud, reliable reminders": "تذكيرات مسموعة وموثوقة", "One big Taken button": "زر كبير واحد لتأكيد الجرعة", "Family can follow along": "العائلة تستطيع المتابعة", "Doctor visits": "مواعيد الطبيب", "History of every dose": "سجل لكل جرعة", "Emergency card": "بطاقة الطوارئ", "Round SOS button": "زر استغاثة دائري", "Skipped doses": "الجرعات المتخطاة", "Stock counts": "عدد الأقراص المتبقية", "Big and simple": "كبير وبسيط", "Try it right now": "جرّبه الآن", "One big button. That is all it takes.": "زر كبير واحد. هذا كل ما تحتاجه.", "This is a small sample day. Tap Taken on a dose, the way you would in the app.": "هذا يوم تجريبي صغير. اضغط «تم» على إحدى الجرعات كما تفعل في التطبيق.", "Today": "اليوم", "Start over": "ابدأ من جديد", "All done for today. Well done.": "انتهيت اليوم. أحسنت.", "Vitamin D": "فيتامين د", "Blood pressure": "دواء الضغط", "Heart pill": "دواء القلب", "Evening vitamin": "فيتامين المساء", "8:00 AM": "8:00 ص", "1:00 PM": "1:00 م", "6:00 PM": "6:00 م", "9:00 PM": "9:00 م", "✓ Taken": "✓ تم", "Taken ✓": "تم ✓", "What is inside": "ما بداخله", "Made so anyone can use it.": "صُمّم ليستخدمه الجميع.", "Few words, big pictures, and a reminder that does its job.": "كلمات قليلة، وصور كبيرة، وتذكير يؤدي مهمته.", "When it is time": "عندما يحين الوقت", "It rings. You tap.": "يرنّ التنبيه. وتضغط.", "At the dose time Medrex rings loudly, even on the lock screen. One big gold button says you took it.": "عند موعد الجرعة يرنّ Medrex بصوت عالٍ حتى على شاشة القفل. زر ذهبي كبير واحد يؤكد أنك تناولت دواءك.", "Taken, Later or Skip: no small print.": "تم أو لاحقًا أو تخطّي: دون تعقيد.", "If you forget, it asks again.": "إن نسيت، يسألك مرة أخرى.", "A missed dose is clear, never hidden.": "الجرعة الفائتة تظهر بوضوح ولا تُخفى.", "For the people who care": "لمن يهتمون بك", "Family can follow along.": "العائلة تستطيع المتابعة.", "If you choose, a family member sees on their own phone when you take your medicine. You decide who, and you can stop any time.": "إن اخترت ذلك، يرى أحد أفراد عائلتك على هاتفه متى تتناول دواءك. أنت تقرر من، ويمكنك التوقف في أي وقت.", "They see each dose as it happens.": "يرون كل جرعة لحظة حدوثها.", "They can suggest a change. You say yes or not now.": "يمكنهم اقتراح تغيير. وأنت تقبل أو تؤجّل.", "Nobody sees anything unless you allow it.": "لا أحد يرى شيئًا ما لم تسمح له.", "Beyond the pills": "أكثر من الأدوية", "Doctor visits and history.": "مواعيد الطبيب والسجل.", "Keep your visits in one place and be reminded before each one. Look back at every dose you took, skipped or missed.": "احتفظ بمواعيدك في مكان واحد ويصلك تذكير قبل كل موعد. وراجع كل جرعة تناولتها أو تخطيتها أو فاتتك.", "Visits are coloured by how soon they are.": "تُلوَّن المواعيد بحسب قربها.", "A history of the last two months.": "سجل لآخر شهرين.", "An emergency card and a round SOS button on Home.": "بطاقة طوارئ وزر استغاثة دائري في الشاشة الرئيسية.", "Including Arabic, with the screens turning right to left.": "ومنها العربية، مع انعكاس الشاشات من اليمين إلى اليسار.", "Know when a box is running low.": "اعرف متى توشك العلبة على النفاد.", "Your data stays with you": "بياناتك تبقى معك", "Your medicines are saved on your phone. Only if you turn on family sharing do doses go online, and only for the people you allow. We never sell your information.": "أدويتك محفوظة على هاتفك. ولا تُرسل الجرعات عبر الإنترنت إلا إذا فعّلت مشاركة العائلة، ولمن تسمح لهم فقط. لا نبيع معلوماتك أبدًا.", "Medrex is coming to Google Play.": "Medrex قريبًا على Google Play.", "Medicine reminders from MLE Studio. No date yet. Write to us and we will tell you when it is ready.": "تذكير بالأدوية من MLE Studio. لا يوجد موعد بعد. راسلنا وسنخبرك عندما يصبح جاهزًا.", "Questions?": "أسئلة؟", "Privacy Policy": "سياسة الخصوصية", "Medrex is a reminder. It is not a doctor and gives no medical advice.": "Medrex تذكير فقط. وهو ليس طبيبًا ولا يقدّم نصيحة طبية.", "Medrex Privacy Policy": "سياسة خصوصية Medrex", "· Commercial Register 7055617893": "· السجل التجاري 7055617893"};
+var lang='en',nodes=[],EN_TITLE=document.title,md=document.querySelector('meta[name=description]'),EN_DESC=md.content,AR_TITLE='Medrex - تذكير بالأدوية، قريبًا | MLE Studio',AR_DESC='Medrex تذكير بسيط بالأدوية بأزرار كبيرة وتنبيه مسموع وربط مع العائلة. قريبًا على Google Play من MLE Studio.';
+function tr(t){return lang=='ar'&&AR_MAP[t]!==undefined?AR_MAP[t]:t}
+function collect(){var w=document.createTreeWalker(document.body,NodeFilter.SHOW_TEXT,{acceptNode:function(n){if(!n.nodeValue.trim())return 2;if(n.parentNode.closest('script,style,.ph,#list'))return 2;return 1}}),n;while(n=w.nextNode())nodes.push({n:n,en:n.nodeValue})}
+function draw(){
+  list.innerHTML='';var done=D.filter(function(x){return x.d}).length;
+  D.forEach(function(x,i){var el=document.createElement('div');el.className='task'+(x.d?' done':'');
+    el.innerHTML='<div class="n"><b>'+tr(x.n)+'</b><small>'+tr(x.t)+'</small></div>'+(x.d?'<span class="go">'+tr('\u2713 Taken')+'</span>':'<button class="go" data-i="'+i+'">'+tr('Taken \u2713')+'</button>');
+    list.appendChild(el)});
+  rn.textContent=done+'/'+D.length;fg.style.strokeDashoffset=289*(1-done/D.length);
+  note.textContent=done==D.length?tr('All done for today. Well done.'):'';
+}
+function setLang(l){
+  lang=l;var d=document.documentElement;d.lang=l;d.dir=l=='ar'?'rtl':'ltr';
+  nodes.forEach(function(o){var m=o.en.match(/^(\s*)([\s\S]*?)(\s*)$/);o.n.nodeValue=m[1]+tr(m[2])+m[3]});
+  document.title=l=='ar'?AR_TITLE:EN_TITLE;md.content=l=='ar'?AR_DESC:EN_DESC;
+  document.getElementById('lang').textContent=l=='ar'?'EN':'عربي';
+  try{localStorage.setItem('lang',l)}catch(e){}
+  draw();
+}
+collect();
+document.getElementById('lang').onclick=function(e){e.preventDefault();setLang(lang=='ar'?'en':'ar')};
+var saved=null;try{saved=localStorage.getItem('lang')}catch(e){}
+if(!saved)saved=((navigator.language||'').toLowerCase().indexOf('ar')===0)?'ar':'en';
+if(saved=='ar')setLang('ar');
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c6738abfbf544b3a8679a1b95c36c2eb"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
