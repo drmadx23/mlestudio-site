@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="en" dir="ltr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Medrex - Medicine reminders, coming soon | MLE Studio</title>
+<meta name="description" content="Medrex is a simple medicine reminder app with big buttons, loud reminders and a family link. Coming soon to Google Play, from MLE Studio.">
+<meta name="theme-color" content="#07080f">
+<link rel="icon" type="image/svg+xml" href="icon.svg">
+<link rel="canonical" href="https://mlestudio.app/medrex/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="MLE Studio">
+<meta property="og:title" content="Medrex - Medicine reminders, coming soon">
+<meta property="og:description" content="Big buttons, loud reminders and a family link. Coming soon to Google Play.">
+<meta property="og:url" content="https://mlestudio.app/medrex/">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+:root{--bg:#07080f;--fg:#f1f3ff;--mut:#b7bedf;--acc:#ff8a4c;--v:#8b6bff;--c:#27d3ee;--p:#ff5fa2;--glass:#ffffff12;--gl:#ffffff26}
+body{font-family:"Segoe UI",Tahoma,Arial,sans-serif;background:var(--bg);color:var(--fg);line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+/* aurora */
+.aur{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.aur i{position:absolute;border-radius:50%;filter:blur(90px);opacity:.5;animation:drift 18s ease-in-out infinite alternate}
+.aur i:nth-child(1){width:560px;height:560px;background:var(--v);left:-140px;top:-120px}
+.aur i:nth-child(2){width:520px;height:520px;background:var(--c);right:-160px;top:10%;animation-delay:-6s;opacity:.38}
+.aur i:nth-child(3){width:480px;height:480px;background:var(--p);left:30%;top:55%;animation-delay:-11s;opacity:.28}
+.aur i:nth-child(4){width:400px;height:400px;background:var(--acc);right:5%;bottom:-120px;animation-delay:-3s;opacity:.3}
+@keyframes drift{to{transform:translate(80px,60px) scale(1.18)}}
+.grain{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='140' height='140'><filter id='n'><feTurbulence baseFrequency='.9' numOctaves='2'/></filter><rect width='140' height='140' filter='url(%23n)'/></svg>")}
+#spot{position:fixed;z-index:1;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;background:radial-gradient(#ffffff14,transparent 65%);pointer-events:none;left:50%;top:30%}
+main,header,footer{position:relative;z-index:2}
+.wrap{max-width:1120px;margin:0 auto;padding:0 28px}
+/* nav */
+header{position:sticky;top:14px;z-index:10;margin:14px auto 0;max-width:1064px;padding:11px 14px 11px 24px;border-radius:99px;background:#0b0e1c99;border:1px solid var(--gl);backdrop-filter:blur(18px);display:flex;justify-content:space-between;align-items:center}
+.brand{font-weight:800;font-size:19px;letter-spacing:.2px;background:linear-gradient(90deg,#c7b8ff,#7ee7ff);-webkit-background-clip:text;color:transparent}
+nav{display:flex;gap:6px;align-items:center;font-size:14px;color:var(--mut)}
+nav a{padding:8px 14px;border-radius:99px}nav a:hover{background:#ffffff14;color:#fff}
+nav .lang{border:1px solid var(--gl);color:#fff}
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:center;padding:80px 0 70px}
+.tag{display:inline-flex;gap:8px;align-items:center;padding:7px 15px;border-radius:99px;background:var(--glass);border:1px solid var(--gl);font-size:13px;color:#d7dcff}
+.tag b{width:8px;height:8px;border-radius:50%;background:#46e39a;box-shadow:0 0 12px #46e39a}
+h1{font-size:clamp(40px,6vw,68px);line-height:1.02;letter-spacing:-2px;margin-top:20px}
+h1 em{font-style:normal;background:linear-gradient(90deg,#c7b8ff,#7ee7ff 45%,#ffb18a);-webkit-background-clip:text;color:transparent;background-size:200%;animation:shine 7s linear infinite}
+@keyframes shine{to{background-position:-200% 0}}
+.hero p.lead{margin-top:20px;font-size:19px;color:var(--mut);max-width:500px}
+.cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn{padding:15px 28px;border-radius:99px;font-weight:700;font-size:15px;display:inline-flex;gap:10px;align-items:center;transition:transform .2s,box-shadow .2s;cursor:pointer;border:0;font-family:inherit}
+.btn.p{background:linear-gradient(135deg,var(--acc),#ff5fa2);color:#1a0b05;box-shadow:0 12px 34px #ff8a4c55}
+.btn.p:hover{transform:translateY(-3px);box-shadow:0 18px 44px #ff8a4c88}
+.btn.g{background:var(--glass);border:1px solid var(--gl);color:#fff}.btn.g:hover{background:#ffffff1f}
+.mini{margin-top:26px;display:flex;gap:22px;color:var(--mut);font-size:13px;flex-wrap:wrap}.mini span::before{content:"\2713 ";color:#46e39a}
+/* phone */
+.stage{perspective:1100px;display:grid;place-items:center;position:relative;min-height:560px}
+.ph{width:290px;aspect-ratio:9/16;border-radius:30px;padding:0;background:#222;box-shadow:0 40px 90px #000a,0 0 90px #8b6bff44;position:relative;transition:transform .15s ease-out;transform-style:preserve-3d;overflow:hidden}
+.ph img{width:100%;height:100%;object-fit:cover;border-radius:30px;display:block}
+.ph.sm{width:270px}
+.chip{position:absolute;padding:11px 15px;border-radius:18px;background:#14172bcc;border:1px solid var(--gl);backdrop-filter:blur(14px);font-size:13px;box-shadow:0 14px 34px #0008;animation:bob 6s ease-in-out infinite;transform:translateZ(60px)}
+.chip b{display:block;font-size:14px}.chip small{color:var(--mut)}
+.c1{left:-30px;top:70px}.c2{right:-34px;top:250px;animation-delay:-2s}.c3{left:-14px;bottom:70px;animation-delay:-4s}
+@keyframes bob{50%{translate:0 -14px}}
+/* ribbon */
+.ribbon{overflow:hidden;border-block:1px solid var(--gl);background:#ffffff08;padding:16px 0;margin:10px 0 0;white-space:nowrap}
+.ribbon div{display:inline-block;animation:slide 40s linear infinite;color:var(--mut);font-size:15px}
+.ribbon span{margin:0 26px}.ribbon span::before{content:"\2726  ";color:var(--acc)}
+@keyframes slide{to{transform:translateX(-50%)}}
+/* sections */
+section{padding:96px 0}
+.eyebrow{color:var(--acc);font-weight:700;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+h2{font-size:clamp(30px,4.2vw,46px);line-height:1.08;letter-spacing:-1.2px;margin:12px 0 14px}
+.sub{color:var(--mut);font-size:18px;max-width:600px}
+/* demo */
+.demo{margin-top:42px;display:grid;grid-template-columns:.9fr 1.1fr;gap:26px;align-items:stretch}
+.panel{border-radius:28px;background:var(--glass);border:1px solid var(--gl);backdrop-filter:blur(16px);padding:28px}
+.times{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 8px}
+.times button{padding:13px 22px;border-radius:99px;border:1px solid var(--gl);background:#ffffff0d;color:#fff;font:600 15px inherit;cursor:pointer;transition:.2s}
+.times button:hover{background:#ffffff1f}.times button.on{background:linear-gradient(135deg,var(--acc),var(--p));color:#1a0b05;border-color:transparent;box-shadow:0 10px 28px #ff8a4c55}
+.hint{color:var(--mut);font-size:14px}
+.pick{margin-top:22px;padding:20px;border-radius:20px;background:linear-gradient(135deg,#ff8a4c22,#ff5fa222);border:1px solid #ff8a4c66}
+.pick small{color:#ffc3a3;font-weight:700;letter-spacing:1px;font-size:12px}
+.pick h4{font-size:21px;margin:4px 0 12px}
+.list{display:flex;flex-direction:column;gap:10px}
+.task{display:flex;align-items:center;gap:14px;padding:15px 17px;border-radius:16px;background:#ffffff0d;border:1px solid var(--gl);animation:pop .45s both}
+.task.top{background:#ff8a4c1f;border-color:#ff8a4c88}
+.task .n{flex:1}.task .n b{display:block;font-size:15px}.task .n small{color:var(--mut);font-size:12.5px}
+.task .m{font-size:13px;padding:5px 11px;border-radius:99px;background:#ffffff1a}
+.task.no{opacity:.35;filter:grayscale(1)}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.97)}}
+.ring{width:112px;height:112px;position:relative;display:none;margin:4px 0 0}
+.ring.show{display:block}.ring svg{transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9;stroke-linecap:round}
+.ring .bg{stroke:#ffffff20}.ring .fg{stroke:url(#g);stroke-dasharray:289;stroke-dashoffset:289}
+.ring.show .fg{animation:fill 6s linear forwards}@keyframes fill{to{stroke-dashoffset:0}}
+.ring span{position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:22px}
+/* features */
+.feat{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center;padding:60px 0}
+.feat.rev .txt{order:2}
+.feat .vis{display:grid;place-items:center}
+.feat ul{margin-top:18px;list-style:none;display:grid;gap:10px;color:var(--mut)}
+.feat li::before{content:"\2192  ";color:var(--acc);font-weight:700}
+.rv{opacity:0;transform:translateY(46px);transition:opacity .9s,transform .9s cubic-bezier(.2,.7,.2,1)}
+.rv.in{opacity:1;transform:none}
+.tilt{transition:transform .2s}
+/* bento */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.bento div{padding:24px;border-radius:24px;background:var(--glass);border:1px solid var(--gl);backdrop-filter:blur(12px);transition:.25s}
+.bento div:hover{transform:translateY(-6px);background:#ffffff1c}
+.bento b{display:block;font-size:30px;background:linear-gradient(90deg,#c7b8ff,#7ee7ff);-webkit-background-clip:text;color:transparent;margin-bottom:4px}
+.bento span{color:var(--mut);font-size:14px}.bento .w2{grid-column:span 2}
+/* download */
+.dl{margin:20px 0 90px;border-radius:36px;padding:60px 40px;text-align:center;background:linear-gradient(135deg,#ff8a4c33,#8b6bff33,#27d3ee22);border:1px solid var(--gl);position:relative;overflow:hidden}
+.dl img{width:104px;height:104px;border-radius:26px;box-shadow:0 20px 50px #000a,0 0 60px #ff8a4c66;animation:bob 5s ease-in-out infinite}
+.dl h2{margin-top:22px}.dl .cta{justify-content:center}
+.contactrow{display:flex;gap:14px;justify-content:center;margin-top:18px;color:var(--mut);font-size:14px;flex-wrap:wrap}
+footer{padding:0 0 30px}
+.foot{border-radius:24px;border:1px solid var(--gl);background:var(--glass);padding:20px 26px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--mut);font-size:13px}
+@media(max-width:860px){.hero,.demo,.feat{grid-template-columns:1fr}.feat.rev .txt{order:0}.bento{grid-template-columns:1fr 1fr}.chip{display:none}.stage{min-height:auto}nav a:not(.lang){display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+[dir=rtl] h1,[dir=rtl] h2{letter-spacing:0}
+[dir=rtl] .feat li::before{content:"\2190  "}
+[dir=rtl] .eyebrow{letter-spacing:0}
+[dir=rtl] .ring{margin:4px 0 0 auto}
+html{overflow-x:hidden}
+.ph{display:block}
+.ph.hero{width:300px;aspect-ratio:540/748}
+.ph img{width:100%;height:100%}
+a:focus-visible,button:focus-visible{outline:3px solid #7ee7ff;outline-offset:3px}
+.skip{position:absolute;top:8px;inset-inline-start:12px;z-index:99;background:#fff;color:#000;padding:10px 16px;border-radius:10px;transform:translateY(-220%)}
+.skip:focus{transform:none}
+@media(hover:none){#spot{display:none}}
+
+/* Medrex: gold accent, drawn phone screens */
+:root{--acc:#F1C75B;--sage:#0E2E29}
+.aur i:nth-child(4){background:#F1C75B}
+.btn.p{background:linear-gradient(135deg,#ffe39a,#F1C75B 60%,#ffb86b);color:#3B2C00;box-shadow:0 12px 34px #f1c75b55}
+.btn.p:hover{box-shadow:0 18px 44px #f1c75b88}
+.brandrow{display:flex;gap:16px;align-items:center;margin-bottom:6px}
+.app{width:84px;height:84px;border-radius:22%;box-shadow:0 14px 40px #000a,0 0 50px #f1c75b55;display:block}
+h1 em{background-image:linear-gradient(90deg,#ffe6a3,#F1C75B 45%,#ff9d6b)}
+.eyebrow{color:#F1C75B}
+.ribbon span::before{color:#F1C75B}
+.feat li::before{color:#F1C75B}
+.scr{position:absolute;inset:0;padding:18px 14px;background:linear-gradient(#E8F1EE,#B5CDC5,#8FADA3);color:#0E2E29;text-align:left;font-size:13px}
+.scr .hd{font-size:21px;font-weight:800;margin:6px 4px 12px}
+.scr .tl{font-size:11px;font-weight:800;letter-spacing:1px;color:#2E4A44;margin:10px 4px 6px}
+.dz{display:flex;align-items:center;gap:9px;background:rgba(255,255,255,.72);border:1.5px solid #fff;border-radius:18px;padding:10px;margin-bottom:8px;font-weight:700;font-size:13px}
+.dz i{width:30px;height:30px;border-radius:50%;flex:none;display:block;background:#ffd36b}
+.dz small{display:block;font-size:11px;color:#2E4A44;font-weight:700}
+.dz .tk{margin-left:auto;background:#F1C75B;color:#3B2C00;font-weight:900;border-radius:13px;padding:7px 11px;font-size:12px}
+.dz .ok{margin-left:auto;background:#14733D;color:#fff;font-weight:900;border-radius:10px;padding:3px 8px;font-size:11px}
+.dz.done{background:#D8EEDF;border-color:#A9D6B9}.dz.done i{background:#14733D}
+.dz.soon{background:#FFF1C2;border-color:#E8CF7A}
+.dz.week{background:#DDEBF5;border-color:#A9C9DE}
+.tag2{margin-left:auto;font-size:10px;font-weight:900;color:#fff;border-radius:9px;padding:3px 8px}
+.sosb{position:absolute;right:16px;bottom:20px;width:48px;height:48px;border-radius:50%;background:#C62F3A;color:#fff;font-weight:900;font-size:12px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px #0005}
+.follow{background:#164A6B;color:#fff;border-radius:16px;padding:8px 12px;font-weight:800;margin-bottom:10px;display:flex;justify-content:space-between}
+.bigalert{text-align:center;padding-top:34px}
+.bigalert .pill{width:92px;height:92px;border-radius:50%;margin:0 auto 14px;background:#fff;display:grid;place-items:center;font-size:46px;box-shadow:0 10px 30px #0003}
+.bigalert b{font-size:22px;display:block}
+.bigalert .btnT{margin:26px 10px 10px;background:linear-gradient(#ffe39a,#F1C75B);color:#3B2C00;font-weight:900;font-size:22px;padding:20px;border-radius:30px;box-shadow:0 10px 24px #f1c75b88}
+.bigalert .later{color:#164A6B;font-weight:800;font-size:15px}
+.tasks .task{cursor:pointer}
+.task .go{border:0;font-family:inherit;font-weight:900;font-size:13px;border-radius:99px;padding:8px 16px;cursor:pointer;background:linear-gradient(#ffe39a,#F1C75B);color:#3B2C00}
+.task.done{background:#14733D26;border-color:#46e39a88}
+.task.done .go{background:#14733D;color:#fff;cursor:default}
+.ring.show .fg{animation:none;transition:stroke-dashoffset .5s}
+.dl{background:linear-gradient(135deg,#f1c75b33,#8b6bff33,#27d3ee22)}
+.dl .app{width:104px;height:104px;border-radius:22%;margin:0 auto;animation:bob 5s ease-in-out infinite}
+.note{color:var(--mut);font-size:13px;margin-top:14px}
+</style></head><body>
+<a class="skip" href="#top">Skip to content</a>
+<div class="aur"><i></i><i></i><i></i><i></i></div><div class="grain"></div><div id="spot"></div>
+
+<header>
+  <a class="brand" href="../">MLE Studio</a>
+  <nav><a href="#demo">Try it</a><a href="#features">Features</a><a href="#get">Coming soon</a></nav>
+</header>
+
+<main id="top"><div class="wrap">
+  <div class="hero">
+    <div>
+      <div class="brandrow"><img class="app" src="icon.svg" width="84" height="84" alt="Medrex app icon"></div>
+      <span class="tag"><b></b><span>Coming soon to Google Play</span></span>
+      <h1>Your medicine,<br><em>on time.</em></h1>
+      <p class="lead">Medrex is a simple reminder with big buttons and a loud alert. Tap one gold button when you have taken it, and let your family follow along if you want them to.</p>
+      <div class="cta"><a class="btn p" href="mailto:MLE.studio@hotmail.com?subject=Tell%20me%20when%20Medrex%20is%20ready">Email me when it is ready</a><a class="btn g" href="#demo">Try the idea &darr;</a></div>
+      <div class="mini"><span>Reminders work offline</span><span>Big, simple buttons</span><span>15 languages</span></div>
+    </div>
+    <div class="stage" id="stage">
+      <div class="ph hero" id="phone"><div class="scr">
+        <div class="hd">Good morning</div>
+        <div class="tl">TODAY</div>
+        <div class="dz done"><i></i><div>Vitamin D<small>8:00 AM</small></div><span class="ok">&#10003; Taken</span></div>
+        <div class="dz"><i></i><div>Blood pressure<small>1:00 PM</small></div><span class="tk">Taken &#10003;</span></div>
+        <div class="dz"><i style="background:#9bd2ee"></i><div>Heart pill<small>6:00 PM</small></div></div>
+        <div class="dz"><i style="background:#c9b8f0"></i><div>Evening vitamin<small>9:00 PM</small></div></div>
+        <div class="sosb">SOS</div>
+      </div></div>
+      <div class="chip c1"><b>Time for Blood pressure</b><small>Tap Taken when you have taken it</small></div>
+      <div class="chip c2"><b>Following up: Mama</b><small>&#9679; Live</small></div>
+      <div class="chip c3"><b>Doctor tomorrow</b><small>Reminded before you go</small></div>
+    </div>
+  </div>
+</div>
+<div class="ribbon"><div id="rib"></div></div>
+
+<div class="wrap">
+<section id="demo">
+  <span class="eyebrow">Try it right now</span>
+  <h2>One big button. That is all it takes.</h2>
+  <p class="sub">This is a small sample day. Tap Taken on a dose, the way you would in the app.</p>
+  <div class="demo">
+    <div class="panel">
+      <div class="hint">Today</div>
+      <div class="ring show" id="ring" style="margin:18px 0 6px"><svg width="112" height="112"><defs><linearGradient id="g"><stop offset="0" stop-color="#ffe39a"/><stop offset="1" stop-color="#F1C75B"/></linearGradient></defs><circle class="bg" cx="56" cy="56" r="46"/><circle class="fg" cx="56" cy="56" r="46"/></svg><span id="rn">1/4</span></div>
+      <p class="hint" id="rnote" style="margin-top:8px"></p>
+      <button class="btn g" id="reset" style="margin-top:16px;padding:10px 20px">Start over</button>
+    </div>
+    <div class="panel"><div class="list tasks" id="list"></div></div>
+  </div>
+</section>
+
+<section id="features">
+  <span class="eyebrow">What is inside</span>
+  <h2>Made so anyone can use it.</h2>
+  <p class="sub">Few words, big pictures, and a reminder that does its job.</p>
+
+  <div class="feat rv">
+    <div class="txt"><span class="eyebrow">When it is time</span><h2>It rings. You tap.</h2>
+      <p class="sub">At the dose time Medrex rings loudly, even on the lock screen. One big gold button says you took it.</p>
+      <ul><li>Taken, Later or Skip: no small print.</li><li>If you forget, it asks again.</li><li>A missed dose is clear, never hidden.</li></ul></div>
+    <div class="vis"><div class="ph sm tilt"><div class="scr"><div class="bigalert"><div class="pill">&#128138;</div><b>Time for</b><b>Blood pressure</b><div style="color:#2E4A44;font-weight:700;margin-top:6px">1:00 PM</div><div class="btnT">Taken &#10003;</div><div class="later">Later</div></div></div></div></div>
+  </div>
+
+  <div class="feat rev rv">
+    <div class="txt"><span class="eyebrow">For the people who care</span><h2>Family can follow along.</h2>
+      <p class="sub">If you choose, a family member sees on their own phone when you take your medicine. You decide who, and you can stop any time.</p>
+      <ul><li>They see each dose as it happens.</li><li>They can suggest a change. You say yes or not now.</li><li>Nobody sees anything unless you allow it.</li></ul></div>
+    <div class="vis"><div class="ph sm tilt"><div class="scr"><div class="hd">Home</div><div class="follow"><span>Following up: Mama</span><span>&#9679; Live</span></div>
+      <div class="dz done"><i></i><div>Vitamin D<small>8:00 AM</small></div><span class="ok">&#10003; Taken</span></div>
+      <div class="dz done"><i></i><div>Blood pressure<small>1:00 PM</small></div><span class="ok">&#10003; Taken</span></div>
+      <div class="dz"><i style="background:#9bd2ee"></i><div>Heart pill<small>6:00 PM</small></div></div></div></div></div>
+  </div>
+
+  <div class="feat rv">
+    <div class="txt"><span class="eyebrow">Beyond the pills</span><h2>Doctor visits and history.</h2>
+      <p class="sub">Keep your visits in one place and be reminded before each one. Look back at every dose you took, skipped or missed.</p>
+      <ul><li>Visits are coloured by how soon they are.</li><li>A history of the last two months.</li><li>An emergency card and a round SOS button on Home.</li></ul></div>
+    <div class="vis"><div class="ph sm tilt"><div class="scr"><div class="hd">Appointments</div>
+      <div class="dz soon"><i style="background:#FF9D4C"></i><div>Dr. Sara<small>Tomorrow, 10:30 AM</small></div><span class="tag2" style="background:#C2641B">Soon</span></div>
+      <div class="dz week"><i style="background:#3B7DA8"></i><div>Check-up<small>In 5 days, 4:00 PM</small></div><span class="tag2" style="background:#2F6C97">This week</span></div>
+      <div class="dz"><i style="background:#c9b8f0"></i><div>Eye test<small>Next month</small></div></div></div></div></div>
+  </div>
+
+  <div class="bento rv">
+    <div><b>15 languages</b><span>Including Arabic, with the screens turning right to left.</span></div>
+    <div><b>Stock counts</b><span>Know when a box is running low.</span></div>
+    <div class="w2"><b>Your data stays with you</b><span>Your medicines are saved on your phone. Only if you turn on family sharing do doses go online, and only for the people you allow. We never sell your information.</span></div>
+  </div>
+</section>
+
+<section id="get" style="padding-top:20px">
+  <div class="dl rv">
+    <img class="app" src="icon.svg" width="104" height="104" alt="Medrex">
+    <h2>Medrex is coming to Google Play.</h2>
+    <p class="sub" style="margin:0 auto">Medicine reminders from MLE Studio. No date yet. Write to us and we will tell you when it is ready.</p>
+    <div class="cta"><a class="btn p" href="mailto:MLE.studio@hotmail.com?subject=Tell%20me%20when%20Medrex%20is%20ready">Email me when it is ready</a></div>
+    <div class="contactrow"><span>Questions? <a href="mailto:MLE.studio@hotmail.com">MLE.studio@hotmail.com</a></span><span>&middot;</span><a href="privacy.html">Privacy Policy</a></div>
+    <p class="note">Medrex is a reminder. It is not a doctor and gives no medical advice.</p>
+  </div>
+</section>
+</div></main>
+
+<footer><div class="wrap"><div class="foot"><div>&copy; 2026 MLE Studio &mdash; ABDULHADY MOHAMMED JAHHAF Establishment For innovative solutions</div><div><a href="privacy.html">Medrex Privacy Policy</a> &middot; <a href="mailto:MLE.studio@hotmail.com">MLE.studio@hotmail.com</a> &middot; Commercial Register 7055617893</div></div></div></footer>
+
+<script>
+var RIB=["Loud, reliable reminders", "One big Taken button", "Family can follow along", "Doctor visits", "History of every dose", "Emergency card", "Round SOS button", "Skipped doses", "Stock counts", "15 languages", "Big and simple", "Reminders work offline"].map(function(x){return'<span>'+x+'</span>'}).join('');
+document.getElementById('rib').innerHTML=RIB.repeat(4);
+var D=[["Vitamin D", "8:00 AM", true], ["Blood pressure", "1:00 PM", false], ["Heart pill", "6:00 PM", false], ["Evening vitamin", "9:00 PM", false]].map(function(x){return{n:x[0],t:x[1],d:x[2]}});
+D=D.map(function(x){return x});
+var list=document.getElementById('list'),rn=document.getElementById('rn'),fg=document.querySelector('#ring .fg'),note=document.getElementById('rnote');
+function draw(){
+  list.innerHTML='';var done=D.filter(function(x){return x.d}).length;
+  D.forEach(function(x,i){var el=document.createElement('div');el.className='task'+(x.d?' done':'');
+    el.innerHTML='<div class="n"><b>'+x.n+'</b><small>'+x.t+'</small></div>'+(x.d?'<span class="go">&#10003; Taken</span>':'<button class="go" data-i="'+i+'">Taken &#10003;</button>');
+    list.appendChild(el)});
+  rn.textContent=done+'/'+D.length;fg.style.strokeDashoffset=289*(1-done/D.length);
+  note.textContent=done==D.length?'All done for today. Well done.':'';
+}
+list.addEventListener('click',function(e){var b=e.target.closest('button[data-i]');if(b){D[+b.dataset.i].d=true;draw()}});
+document.getElementById('reset').onclick=function(){D.forEach(function(x,i){x.d=i==0});draw()};
+draw();
+var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.15});
+document.querySelectorAll('.rv').forEach(function(e){io.observe(e)});
+var ph=document.getElementById('phone'),st=document.getElementById('stage');
+st.addEventListener('mousemove',function(e){var r=st.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;ph.style.transform='rotateY('+(x*22)+'deg) rotateX('+(-y*16)+'deg)'});
+st.addEventListener('mouseleave',function(){ph.style.transform=''});
+document.querySelectorAll('.tilt').forEach(function(t){t.parentNode.addEventListener('mousemove',function(e){var r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform='perspective(900px) rotateY('+(x*16)+'deg) rotateX('+(-y*12)+'deg)'});t.parentNode.addEventListener('mouseleave',function(){t.style.transform=''})});
+var sp=document.getElementById('spot');document.addEventListener('mousemove',function(e){sp.style.left=e.clientX+'px';sp.style.top=e.clientY+'px'});
+</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "c6738abfbf544b3a8679a1b95c36c2eb"}'></script><!-- End Cloudflare Web Analytics -->
+</body></html>
